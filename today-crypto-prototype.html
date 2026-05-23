@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 크립토 · Today in Crypto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161310;
+    --ink-soft:#3a342d;
+    --paper:#f4efe6;
+    --paper-deep:#ebe3d4;
+    --accent:#b5341f;       /* 적벽돌, 신문 헤드라인 색 */
+    --accent-deep:#8a2616;
+    --rule:#cdc3b0;
+    --aside:#5c5448;        /* 괄호 속 코멘트 */
+    --gold:#a8801f;
+    --serif:"Newsreader",Georgia,serif;
+    --serif-alt:"Spectral",Georgia,serif;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    line-height:1.68;
+    font-size:19px;
+    /* 종이 질감 */
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0,0,0,.012) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,0,.012) 0, transparent 40%);
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ===== 상단 마스트헤드 ===== */
+  header.masthead{
+    border-bottom:3px double var(--ink);
+    padding:30px 0 18px;
+    margin-bottom:8px;
+    text-align:center;
+    position:relative;
+  }
+  .kicker{
+    font-family:var(--serif-alt);
+    font-size:12px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    margin-bottom:10px;
+  }
+  .logo{
+    font-weight:600;
+    font-size:clamp(38px,8vw,62px);
+    line-height:.98;
+    letter-spacing:-.02em;
+    font-optical-sizing:auto;
+  }
+  .logo .en{
+    display:block;
+    font-style:italic;
+    font-weight:400;
+    font-size:.34em;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .dateline{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--serif-alt);
+    font-size:12.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:18px;
+    padding-top:12px;
+    border-top:1px solid var(--rule);
+  }
+  .dateline .issue{color:var(--accent-deep)}
+
+  /* ===== 언어 토글 ===== */
+  .langbar{
+    display:flex;justify-content:center;gap:0;
+    margin:22px auto 4px;
+    width:fit-content;
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .langbar button{
+    font-family:var(--serif-alt);
+    font-size:13px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    padding:7px 22px;
+    background:transparent;
+    border:none;
+    color:var(--ink);
+    cursor:pointer;
+    transition:background .18s,color .18s;
+  }
+  .langbar button + button{border-left:1.5px solid var(--ink)}
+  .langbar button.active{background:var(--ink);color:var(--paper)}
+
+  /* ===== 인트로(에디터의 말) ===== */
+  .intro{
+    font-family:var(--serif-alt);
+    font-style:italic;
+    font-size:17.5px;
+    color:var(--ink-soft);
+    text-align:center;
+    max-width:560px;
+    margin:26px auto 8px;
+    line-height:1.6;
+  }
+
+  /* ===== 기사 꼭지 ===== */
+  main{padding:8px 0 40px}
+  .story{
+    padding:30px 0;
+    border-top:1px solid var(--rule);
+  }
+  .story:first-child{border-top:none}
+  .story-num{
+    font-family:var(--serif-alt);
+    font-size:13px;
+    letter-spacing:.2em;
+    color:var(--accent);
+    display:block;
+    margin-bottom:8px;
+  }
+  .story h2{
+    font-weight:600;
+    font-size:clamp(26px,5vw,34px);
+    line-height:1.12;
+    letter-spacing:-.015em;
+    margin-bottom:16px;
+  }
+  .story h2 a{color:var(--ink);text-decoration:none;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+  .story h2 a:hover{background-size:100% 2px}
+  .lede{margin-bottom:14px}
+  /* 인용 블록 */
+  blockquote{
+    border-left:3px solid var(--accent);
+    padding:2px 0 2px 18px;
+    margin:0 0 14px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  blockquote cite{
+    display:block;
+    font-style:normal;
+    font-family:var(--serif-alt);
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--accent-deep);
+    margin-top:8px;
+    text-transform:uppercase;
+  }
+  /* 괄호 속 에디터 코멘트 */
+  .aside{color:var(--aside);font-style:italic}
+  /* + 곁가지 */
+  .plus{
+    margin-top:12px;
+    padding-left:20px;
+    position:relative;
+    color:var(--ink-soft);
+    font-size:17px;
+    line-height:1.55;
+  }
+  .plus::before{
+    content:"+";
+    position:absolute;left:0;top:0;
+    color:var(--accent);
+    font-weight:600;
+    font-family:var(--serif-alt);
+  }
+  .story a.src{color:var(--accent-deep);text-decoration:none;border-bottom:1px solid var(--rule)}
+  .story a.src:hover{border-bottom-color:var(--accent)}
+
+  /* ===== 영어판 작업 영역(발행 페이지엔 숨김) ===== */
+  .draft-tools{
+    margin-top:18px;border:1px dashed var(--gold);
+    background:rgba(168,128,31,.06);
+    padding:14px 16px;border-radius:3px;
+    font-family:var(--serif-alt);
+  }
+  .draft-tools .label{
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:8px;display:flex;gap:10px;align-items:center;
+  }
+  .draft-tools .label .toggle{margin-left:auto;display:flex;gap:6px}
+  .draft-tools .label .toggle button{
+    font-size:11px;letter-spacing:.1em;padding:3px 10px;cursor:pointer;
+    border:1px solid var(--gold);background:transparent;color:var(--gold);border-radius:2px;
+  }
+  .draft-tools .label .toggle button.on{background:var(--gold);color:var(--paper)}
+  .draft-tools .pane{font-style:italic;font-size:16px;color:var(--ink-soft);line-height:1.55}
+  .draft-tools .pane.mine{color:var(--ink)}
+
+  /* ===== 푸터 ===== */
+  footer{
+    border-top:3px double var(--ink);
+    padding:30px 0 60px;text-align:center;
+  }
+  .sub-cta{
+    font-family:var(--serif-alt);
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);
+    display:inline-block;padding:13px 34px;margin:6px 0 18px;
+    text-decoration:none;border-radius:2px;
+  }
+  .colophon{font-family:var(--serif-alt);font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em;line-height:1.8}
+  .colophon a{color:var(--accent-deep);text-decoration:none}
+
+  /* 언어별 표시 제어 */
+  [data-lang]{display:none}
+  body.ko [data-lang="ko"]{display:block}
+  body.en [data-lang="en"]{display:block}
+  /* inline 요소용 */
+  span[data-lang]{display:none}
+  body.ko span[data-lang="ko"]{display:inline}
+  body.en span[data-lang="en"]{display:inline}
+
+  ::selection{background:var(--accent);color:var(--paper)}
+</style>
+</head>
+<body class="ko">
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker" data-lang="ko" style="display:block">디지털 자산, 매일 아침 한 사람의 시선으로</div>
+    <div class="kicker" data-lang="en">Digital assets, every morning, through one pair of eyes</div>
+    <div class="logo">
+      <span data-lang="ko" style="display:block">오늘의 크립토</span>
+      <span data-lang="en">Today in Crypto</span>
+      <span class="en" data-lang="ko">Today in Crypto</span>
+      <span class="en" data-lang="en">오늘의 크립토</span>
+    </div>
+
+    <div class="langbar">
+      <button id="btn-ko" class="active" onclick="setLang('ko')">KO</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+
+    <div class="dateline">
+      <span class="issue" data-lang="ko" style="display:block">제 0호 · 미리보기</span>
+      <span class="issue" data-lang="en">Issue No.0 · Preview</span>
+      <span data-lang="ko" style="display:block">2026년 5월 23일 토요일</span>
+      <span data-lang="en">Saturday, May 23, 2026</span>
+    </div>
+  </header>
+
+  <p class="intro" data-lang="ko" style="display:block">— 이건 구조와 디자인을 보기 위한 더미 미리보기입니다. 실제 뉴스는 1호에서 채워집니다.</p>
+  <p class="intro" data-lang="en">— A dummy preview to feel the structure and design. Real news comes in Issue No.1.</p>
+
+  <main>
+
+    <!-- 1 -->
+    <article class="story">
+      <span class="story-num">01</span>
+      <div data-lang="ko" style="display:block">
+        <h2><a href="#">여기에 말맛 살린 한국어 제목</a></h2>
+        <p class="lede">첫 문단에는 그날 가장 중요한 한 가지를 둡니다. 무슨 일이 있었는지를 짧게 정리하고, 곧장 인용으로 넘어갑니다. NextDraft처럼 직접 취재가 아니라 좋은 출처를 골라 엮는 방식입니다.</p>
+        <blockquote>
+          출처에서 따온 핵심 인용이 여기에 들어갑니다. 사실관계는 원문에 맡기고, 우리는 무엇을 고를지와 어떻게 엮을지를 결정합니다.
+          <cite>출처 매체 이름</cite>
+        </blockquote>
+        <p class="aside">(그리고 여기, 괄호 안에 당신의 한마디. 비꼬든 감탄하든 의심하든 — 이 한 줄이 이 매체의 정체성입니다.)</p>
+        <p class="plus">관련해서 곁가지로 붙이는 두 번째 링크. <a class="src" href="#">관련 기사 제목</a></p>
+      </div>
+      <div data-lang="en">
+        <h2><a href="#">A punchy English headline goes here</a></h2>
+        <p class="lede">The first paragraph holds the single most important thing of the day. A quick setup of what happened, then straight into the quote — curated, not reported.</p>
+        <blockquote>
+          The key quote pulled from the source sits here. We leave the facts to the original and decide only what to pick and how to weave it.
+          <cite>Source Name</cite>
+        </blockquote>
+        <p class="aside">(And here, in parentheses, your one line. Wry, awed, or skeptical — this single line is the identity of the whole thing.)</p>
+        <p class="plus">A related second link as a side note. <a class="src" href="#">Related headline</a></p>
+
+        <div class="draft-tools">
+          <div class="label">영어판 작업 영역 · 발행본엔 안 보임
+            <span class="toggle">
+              <button class="on" onclick="setDraft(this,'mine')">내 초안</button>
+              <button onclick="setDraft(this,'fixed')">첨삭본</button>
+            </span>
+          </div>
+          <div class="pane mine">여기에 당신이 직접 쓴 첫 영작 초안이 들어갑니다. 틀려도 괜찮습니다 — 고치면서 배우는 게 목적이니까.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="story">
+      <span class="story-num">02</span>
+      <div data-lang="ko" style="display:block">
+        <h2><a href="#">디파이 메커니즘을 직접 뜯어보는 꼭지</a></h2>
+        <p class="lede">두 번째 꼭지는 조금 더 깊게. 복잡한 알고리즘이나 프로토콜 구조를, 처음 보는 사람도 따라올 수 있게 한 단계씩 풀어봅니다. 이게 단순 요약 매체와 갈라지는 지점입니다.</p>
+        <p class="aside">(메커니즘을 이해하고 나면, 가격 뉴스가 전혀 다르게 읽힙니다.)</p>
+        <p class="plus">더 깊이 파볼 사람을 위한 원 논문/문서 링크. <a class="src" href="#">원문 보기</a></p>
+      </div>
+      <div data-lang="en">
+        <h2><a href="#">A piece that takes apart a DeFi mechanism</a></h2>
+        <p class="lede">The second piece goes deeper. A complex algorithm or protocol structure, unpacked one step at a time so a newcomer can follow. This is where we split from the summary crowd.</p>
+        <p class="aside">(Once you understand the mechanism, price news reads completely differently.)</p>
+        <p class="plus">A link to the original paper or doc for those who want to dig. <a class="src" href="#">Read the original</a></p>
+        <div class="draft-tools">
+          <div class="label">영어판 작업 영역 · 발행본엔 안 보임
+            <span class="toggle">
+              <button class="on" onclick="setDraft(this,'mine')">내 초안</button>
+              <button onclick="setDraft(this,'fixed')">첨삭본</button>
+            </span>
+          </div>
+          <div class="pane mine">Your draft for this piece goes here.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="story">
+      <span class="story-num">03</span>
+      <div data-lang="ko" style="display:block">
+        <h2><a href="#">업계 인사의 발언, 그리고 그 속내</a></h2>
+        <p class="lede">유명 인사의 말을 요약해 전하되, 거기서 끝내지 않습니다. 그 발언이 이 업계 사람들의 어떤 심리·욕망·불안을 드러내는지 — 인문학적 시선을 한 겹 얹습니다.</p>
+        <blockquote>
+          "여기에 그 사람이 실제로 한 말."
+          <cite>인물 이름 · 발언 출처</cite>
+        </blockquote>
+        <p class="aside">(말 자체보다, 왜 지금 이 말을 했는가가 더 흥미롭습니다.)</p>
+      </div>
+      <div data-lang="en">
+        <h2><a href="#">What a figure said — and what's underneath</a></h2>
+        <p class="lede">We summarize what a notable figure said, but we don't stop there. We add a humanistic layer: what desire, fear, or psychology does the remark reveal about this industry?</p>
+        <blockquote>
+          "What the person actually said goes here."
+          <cite>Name · Source</cite>
+        </blockquote>
+        <p class="aside">(More interesting than the words themselves: why say it now?)</p>
+        <div class="draft-tools">
+          <div class="label">영어판 작업 영역 · 발행본엔 안 보임
+            <span class="toggle">
+              <button class="on" onclick="setDraft(this,'mine')">내 초안</button>
+              <button onclick="setDraft(this,'fixed')">첨삭본</button>
+            </span>
+          </div>
+          <div class="pane mine">Your draft for this piece goes here.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 묶음 -->
+    <article class="story">
+      <span class="story-num">04</span>
+      <div data-lang="ko" style="display:block">
+        <h2><a href="#">짧게, 짧게 — 오늘의 나머지</a></h2>
+        <p class="lede"><strong>온체인:</strong> 한 줄짜리 짧은 소식. <span class="aside">(짧은 코멘트.)</span></p>
+        <p class="plus"><strong>규제:</strong> 또 다른 한 줄. <a class="src" href="#">출처</a></p>
+        <p class="plus"><strong>시장:</strong> 또 다른 한 줄. <a class="src" href="#">출처</a></p>
+      </div>
+      <div data-lang="en">
+        <h2><a href="#">Quick hits — the rest of today</a></h2>
+        <p class="lede"><strong>On-chain:</strong> A one-line item. <span class="aside">(A short aside.)</span></p>
+        <p class="plus"><strong>Regulation:</strong> Another line. <a class="src" href="#">Source</a></p>
+        <p class="plus"><strong>Markets:</strong> Another line. <a class="src" href="#">Source</a></p>
+        <div class="draft-tools">
+          <div class="label">영어판 작업 영역 · 발행본엔 안 보임
+            <span class="toggle">
+              <button class="on" onclick="setDraft(this,'mine')">내 초안</button>
+              <button onclick="setDraft(this,'fixed')">첨삭본</button>
+            </span>
+          </div>
+          <div class="pane mine">Your draft for this piece goes here.</div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <div data-lang="ko" style="display:block">
+      <a class="sub-cta" href="#">구독하기</a>
+      <div class="colophon">
+        오늘의 크립토 · 1인 미디어<br>
+        편집 · 발행 — <a href="#">당신의 이름</a><br>
+        매일 아침 발행 · 한국어 &amp; English<br>
+        © 2026
+      </div>
+    </div>
+    <div data-lang="en">
+      <a class="sub-cta" href="#">Subscribe</a>
+      <div class="colophon">
+        Today in Crypto · A one-person publication<br>
+        Edited &amp; published by — <a href="#">Your Name</a><br>
+        Every morning · 한국어 &amp; English<br>
+        © 2026
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function setLang(l){
+    document.body.classList.remove('ko','en');
+    document.body.classList.add(l);
+    document.documentElement.lang = l;
+    document.getElementById('btn-ko').classList.toggle('active', l==='ko');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+  }
+  function setDraft(btn, which){
+    const tools = btn.closest('.draft-tools');
+    tools.querySelectorAll('.toggle button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const pane = tools.querySelector('.pane');
+    if(which==='mine'){
+      pane.classList.add('mine');
+      pane.textContent = pane.dataset.mine || pane.textContent;
+    }else{
+      pane.classList.remove('mine');
+      pane.dataset.mine = pane.dataset.mine || pane.textContent;
+      pane.textContent = '여기에 첨삭본이 들어갑니다 — 무엇을 왜 고쳤는지 설명과 함께.';
+    }
+  }
+</script>
+</body>
+</html>
