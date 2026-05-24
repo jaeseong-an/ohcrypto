@@ -85,6 +85,17 @@
     font-size:13px;letter-spacing:.34em;text-transform:uppercase;
     color:var(--ink);margin-top:16px;
   }
+  /* 영문 큰 제호 — 글자 수가 많아 살짝 작게, 단어 단위 줄바꿈 */
+  .logo-en-big{
+    font-size:clamp(46px,10vw,78px);
+    letter-spacing:0;
+    word-spacing:.04em;
+  }
+  /* EN 부제(한글)는 본문체로, 한글에 안 맞는 자간/대문자 변환 해제 */
+  body.en .logo-en{
+    font-family:var(--sans);font-weight:500;
+    letter-spacing:.1em;text-transform:none;
+  }
 
   /* 언어 토글 */
   .langbar{display:flex;justify-content:center;margin:22px auto 0;width:fit-content;
@@ -195,38 +206,51 @@
 
   <!-- 키치 상단: 메탈 그라데이션 + 흐르는 티커 -->
   <div class="topbar">
-    <div class="ticker">
-      <span class="y" data-lang="ko" style="display:inline">매일 아침 발행</span>
-      <span class="y" data-lang="en">EVERY MORNING</span>
-      <span>오늘의 크립토 · TODAY IN CRYPTO</span>
-      <span>제1호 / ISSUE No.1</span>
-      <span class="y" data-lang="ko" style="display:inline">한 사람의 시선으로</span>
-      <span class="y" data-lang="en">THROUGH ONE PAIR OF EYES</span>
-      <span>오늘의 크립토 · TODAY IN CRYPTO</span>
-      <span>제1호 / ISSUE No.1</span>
-      <!-- 반복(스크롤 이음새용) -->
-      <span class="y">매일 아침 발행 · EVERY MORNING</span>
-      <span>오늘의 크립토 · TODAY IN CRYPTO</span>
-      <span>제1호 / ISSUE No.1</span>
+    <div class="ticker" data-lang="ko">
+      <span class="y">매일 아침 발행</span>
+      <span>오늘의 크립토</span>
+      <span>제 1 호</span>
       <span class="y">한 사람의 시선으로</span>
-      <span>오늘의 크립토 · TODAY IN CRYPTO</span>
-      <span>제1호 / ISSUE No.1</span>
+      <span>오늘의 크립토</span>
+      <span>제 1 호</span>
+      <!-- 반복(스크롤 이음새용) -->
+      <span class="y">매일 아침 발행</span>
+      <span>오늘의 크립토</span>
+      <span>제 1 호</span>
+      <span class="y">한 사람의 시선으로</span>
+      <span>오늘의 크립토</span>
+      <span>제 1 호</span>
+    </div>
+    <div class="ticker" data-lang="en">
+      <span class="y">EVERY MORNING</span>
+      <span>TODAY IN CRYPTO</span>
+      <span>ISSUE No.1</span>
+      <span class="y">THROUGH ONE PAIR OF EYES</span>
+      <span>TODAY IN CRYPTO</span>
+      <span>ISSUE No.1</span>
+      <!-- 반복(스크롤 이음새용) -->
+      <span class="y">EVERY MORNING</span>
+      <span>TODAY IN CRYPTO</span>
+      <span>ISSUE No.1</span>
+      <span class="y">THROUGH ONE PAIR OF EYES</span>
+      <span>TODAY IN CRYPTO</span>
+      <span>ISSUE No.1</span>
     </div>
   </div>
 
 <div class="wrap">
 
   <header class="masthead">
-    <div class="kicker" data-lang="ko" style="display:block">디지털 자산, 매일 아침, 한 사람의 시선으로</div>
+    <div class="kicker" data-lang="ko">디지털 자산, 매일 아침, 한 사람의 시선으로</div>
     <div class="kicker" data-lang="en">DIGITAL ASSETS · EVERY MORNING · ONE PAIR OF EYES</div>
 
-    <div data-lang="ko" style="display:block">
+    <div data-lang="ko">
       <div class="logo-ko">오늘의 크립토</div>
       <div class="logo-en">Today in Crypto</div>
     </div>
     <div data-lang="en">
-      <div class="logo-ko">오늘의 크립토</div>
-      <div class="logo-en">Today in Crypto</div>
+      <div class="logo-ko logo-en-big">Today in Crypto</div>
+      <div class="logo-en">오늘의 크립토</div>
     </div>
 
     <div class="langbar">
@@ -236,9 +260,9 @@
   </header>
 
   <div class="dateline">
-    <span class="issue" data-lang="ko" style="display:inline">제 1 호</span>
+    <span class="issue" data-lang="ko">제 1 호</span>
     <span class="issue" data-lang="en">ISSUE No.1</span>
-    <span data-lang="ko" style="display:inline">2026. 05. 23. SAT</span>
+    <span data-lang="ko">2026. 05. 23. SAT</span>
     <span data-lang="en">SAT, MAY 23, 2026</span>
   </div>
 
@@ -246,7 +270,7 @@
 
     <!-- 01 케빈 워시 -->
     <article class="story">
-      <div data-lang="ko" style="display:block">
+      <div data-lang="ko">
         <span class="story-num">01</span>
         <h2><a href="https://beincrypto.com/kevin-warsh-sworn-in-fed-chair-2026/" target="_blank" rel="noopener">인하시키려 보낸 망치가, 인상을 압박받는다</a></h2>
 
@@ -315,7 +339,7 @@
 
     <!-- 02 자리표시 (디파이 해부) -->
     <article class="story">
-      <div data-lang="ko" style="display:block">
+      <div data-lang="ko">
         <span class="story-num">02</span>
         <h2><a href="#">디파이 메커니즘 해부 — 다음 꼭지 자리</a></h2>
         <div class="doodle">
@@ -342,7 +366,7 @@
   </main>
 
   <footer>
-    <div data-lang="ko" style="display:block">
+    <div data-lang="ko">
       <a class="sub-cta" href="#">구독하기 →</a>
       <div class="colophon">
         오늘의 크립토 · 1인 미디어<br>
