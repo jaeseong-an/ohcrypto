@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 크립토 제호 레퍼런스 10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Gothic+A1:wght@400;500;700;800&family=Nanum+Pen+Script&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0d;
+    --paper:#fff;
+    --paper-dim:#f4f4f4;
+    --paper-warm:#fbfaf4;
+    --yellow:#ffd400;
+    --yellow-deep:#e6be00;
+    --blue:#1f6fff;
+    --red:#f04438;
+    --green:#15803d;
+    --mono:"Space Mono",ui-monospace,monospace;
+    --sans:"Gothic A1","Helvetica Neue",sans-serif;
+    --hand:"Gaegu",cursive;
+    --pen:"Nanum Pen Script",cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    padding:30px 22px 70px;
+  }
+  .page{
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .intro{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    align-items:end;
+    padding-bottom:24px;
+    border-bottom:3px solid var(--ink);
+    margin-bottom:26px;
+  }
+  h1{
+    font-size:clamp(30px,5vw,56px);
+    line-height:1;
+    letter-spacing:0;
+    font-weight:800;
+    word-break:keep-all;
+  }
+  .intro p{
+    margin-top:12px;
+    max-width:660px;
+    font-size:15px;
+    color:#333;
+    word-break:keep-all;
+  }
+  .rule{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    border:2px solid var(--ink);
+    padding:8px 12px;
+    background:var(--yellow);
+    white-space:nowrap;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .card{
+    min-height:310px;
+    border:2.5px solid var(--ink);
+    background:var(--paper);
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+  }
+  .card-head{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:center;
+    border-bottom:2px solid var(--ink);
+    padding:9px 12px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .tag{
+    background:var(--yellow);
+    border:1.5px solid var(--ink);
+    padding:2px 7px;
+  }
+  .stage{
+    min-height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 18px 18px;
+    overflow:hidden;
+  }
+  .note{
+    border-top:2px solid var(--ink);
+    padding:12px 14px 14px;
+    font-size:13px;
+    color:#333;
+  }
+  .note strong{
+    color:var(--ink);
+  }
+  .small{
+    display:block;
+    margin-top:5px;
+    font-family:var(--mono);
+    font-size:10px;
+    color:#555;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+
+  .logo{
+    position:relative;
+    display:inline-block;
+    color:var(--ink);
+    text-align:center;
+  }
+  .logo .word,
+  .logo .char{
+    display:inline-block;
+    position:relative;
+  }
+
+  /* 01 */
+  .logo-01{
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:clamp(52px,8vw,86px);
+    line-height:.86;
+    letter-spacing:.01em;
+    transform:rotate(-1deg);
+    -webkit-text-stroke:.45px var(--ink);
+  }
+  .logo-01::before{
+    content:"";
+    position:absolute;
+    left:5%;
+    right:4%;
+    bottom:.03em;
+    height:.18em;
+    background:var(--yellow);
+    border:2px solid var(--ink);
+    border-radius:42% 58% 45% 55%/58% 39% 61% 42%;
+    transform:rotate(.8deg);
+    z-index:-1;
+  }
+  .logo-01 .word:nth-child(1){transform:rotate(1.2deg) translateY(.02em)}
+  .logo-01 .word:nth-child(2){transform:rotate(-.9deg) translateY(-.015em)}
+
+  /* 02 */
+  .logo-02{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:clamp(38px,6.2vw,64px);
+    line-height:1;
+    letter-spacing:-.01em;
+    padding:.16em .24em .2em;
+    background:var(--paper-warm);
+  }
+  .logo-02::before{
+    content:"";
+    position:absolute;
+    inset:-.04em -.08em -.02em;
+    border:3px solid var(--ink);
+    border-radius:48% 52% 46% 54%/55% 42% 58% 45%;
+    transform:rotate(-1.7deg);
+    z-index:-1;
+  }
+  .logo-02::after{
+    content:"";
+    position:absolute;
+    width:.45em;
+    height:.45em;
+    right:-.1em;
+    top:-.12em;
+    background:var(--yellow);
+    border:2px solid var(--ink);
+    border-radius:50%;
+  }
+
+  /* 03 */
+  .logo-03{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:clamp(34px,5.6vw,58px);
+    line-height:1;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding:.18em .24em .24em;
+    transform:rotate(.8deg);
+  }
+  .logo-03::before,
+  .logo-03::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    border-top:3px solid var(--ink);
+    transform:rotate(-1.1deg);
+  }
+  .logo-03::before{top:0}
+  .logo-03::after{bottom:0;transform:rotate(.8deg)}
+  .logo-03 .word:first-child{
+    background:var(--yellow);
+    box-shadow:.13em .08em 0 var(--ink);
+    padding:0 .08em;
+    margin-right:.08em;
+  }
+
+  /* 04 */
+  .logo-04{
+    display:grid;
+    grid-template-columns:repeat(4,auto);
+    grid-template-rows:repeat(2,auto);
+    gap:.03em .08em;
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:clamp(46px,7vw,76px);
+    line-height:.82;
+  }
+  .logo-04 .char:nth-child(1){grid-column:1;grid-row:1;transform:rotate(-4deg)}
+  .logo-04 .char:nth-child(2){grid-column:2;grid-row:1;transform:rotate(2deg) translateY(.05em)}
+  .logo-04 .char:nth-child(3){grid-column:3;grid-row:1;transform:rotate(-1deg)}
+  .logo-04 .char:nth-child(4){grid-column:4;grid-row:1;transform:rotate(3deg)}
+  .logo-04 .char:nth-child(5){grid-column:1;grid-row:2;transform:rotate(2deg)}
+  .logo-04 .char:nth-child(6){grid-column:2;grid-row:2;transform:rotate(-2deg) translateY(-.02em)}
+  .logo-04 .char:nth-child(7){grid-column:3;grid-row:2;transform:rotate(1deg)}
+  .logo-04::after{
+    content:"";
+    position:absolute;
+    right:-.25em;
+    bottom:.18em;
+    width:.32em;
+    height:.32em;
+    background:var(--yellow);
+    border:2px solid var(--ink);
+    transform:rotate(18deg);
+  }
+
+  /* 05 */
+  .logo-05{
+    font-family:var(--pen);
+    font-size:clamp(58px,9vw,94px);
+    line-height:.82;
+    letter-spacing:.01em;
+    padding-left:.1em;
+  }
+  .logo-05::before{
+    content:"";
+    position:absolute;
+    left:-.16em;
+    top:-.05em;
+    width:.66em;
+    height:.66em;
+    background:var(--yellow);
+    border:2px solid var(--ink);
+    border-radius:50% 46% 55% 45%;
+    z-index:-1;
+  }
+  .logo-05::after{
+    content:"";
+    position:absolute;
+    left:.03em;
+    right:.02em;
+    bottom:.04em;
+    border-bottom:2px solid var(--ink);
+    transform:rotate(-1.8deg);
+  }
+
+  /* 06 */
+  .logo-06{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:clamp(36px,6vw,62px);
+    line-height:.95;
+    letter-spacing:-.015em;
+    text-align:left;
+  }
+  .logo-06 .word{
+    display:block;
+    width:fit-content;
+  }
+  .logo-06 .word:first-child{
+    font-family:var(--hand);
+    font-size:1.2em;
+    transform:rotate(-2deg);
+  }
+  .logo-06 .word:last-child{
+    margin-left:.56em;
+    transform:rotate(.8deg);
+    text-decoration:underline;
+    text-decoration-thickness:3px;
+    text-decoration-color:var(--yellow);
+    text-underline-offset:-.08em;
+  }
+
+  /* 07 */
+  .logo-07{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:clamp(35px,5.7vw,60px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+  }
+  .logo-07 .word{
+    padding:.03em .12em .06em;
+    border:2px solid var(--ink);
+    background:var(--paper);
+  }
+  .logo-07 .word:first-child{
+    background:var(--yellow);
+    transform:rotate(-2.2deg) translateX(.14em);
+    z-index:2;
+  }
+  .logo-07 .word:last-child{
+    transform:rotate(1.4deg) translateX(-.08em) translateY(.16em);
+    box-shadow:5px 5px 0 var(--ink);
+  }
+
+  /* 08 */
+  .logo-08{
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:clamp(46px,7vw,78px);
+    line-height:.88;
+    letter-spacing:.02em;
+    padding:.12em .2em .18em;
+  }
+  .logo-08::before{
+    content:"";
+    position:absolute;
+    inset:.06em 0 .04em;
+    border-left:3px solid var(--ink);
+    border-right:3px solid var(--ink);
+    transform:skew(-4deg) rotate(.8deg);
+  }
+  .logo-08::after{
+    content:"ISSUE";
+    position:absolute;
+    right:-1.2em;
+    top:-.42em;
+    font-family:var(--mono);
+    font-size:.18em;
+    letter-spacing:.08em;
+    border:1.5px solid var(--ink);
+    background:var(--yellow);
+    padding:.18em .35em;
+    transform:rotate(7deg);
+  }
+
+  /* 09 */
+  .logo-09{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:clamp(34px,5.4vw,56px);
+    line-height:1;
+    letter-spacing:-.015em;
+    padding:.3em .38em .34em;
+  }
+  .logo-09::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:3px solid var(--ink);
+    border-radius:50%;
+    transform:scaleX(1.18) rotate(-2deg);
+  }
+  .logo-09::after{
+    content:"daily";
+    position:absolute;
+    left:50%;
+    bottom:-.35em;
+    transform:translateX(-50%) rotate(1deg);
+    font-family:var(--mono);
+    font-size:.22em;
+    letter-spacing:.18em;
+    background:var(--paper);
+    padding:0 .55em;
+  }
+  .logo-09 .word:first-child{color:var(--yellow-deep);-webkit-text-stroke:1px var(--ink)}
+
+  /* 10 */
+  .logo-10{
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:clamp(50px,7.8vw,84px);
+    line-height:.86;
+    letter-spacing:.02em;
+  }
+  .logo-10 .char:nth-child(1){transform:rotate(-3deg)}
+  .logo-10 .char:nth-child(2){transform:rotate(2deg) translateY(.04em)}
+  .logo-10 .char:nth-child(3){transform:rotate(-1deg)}
+  .logo-10 .char:nth-child(4){transform:rotate(3deg) translateY(-.02em)}
+  .logo-10 .char:nth-child(5){margin-left:.12em;transform:rotate(-2deg)}
+  .logo-10 .char:nth-child(6){transform:rotate(2deg)}
+  .logo-10 .char:nth-child(7){transform:rotate(-3deg) translateY(.03em)}
+  .logo-10::before{
+    content:"";
+    position:absolute;
+    left:-.12em;
+    right:-.08em;
+    top:50%;
+    border-top:2px dashed var(--ink);
+    transform:rotate(-2deg);
+    z-index:-1;
+  }
+  .logo-10::after{
+    content:"";
+    position:absolute;
+    left:.18em;
+    bottom:-.04em;
+    width:.28em;
+    height:.28em;
+    background:var(--yellow);
+    border:2px solid var(--ink);
+    border-radius:50%;
+  }
+
+  @media (max-width:760px){
+    body{padding:22px 14px 50px}
+    .intro{grid-template-columns:1fr}
+    .rule{width:fit-content}
+    .grid{grid-template-columns:1fr}
+    .card{min-height:280px}
+    .stage{min-height:170px}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <section class="intro">
+      <div>
+        <h1>오늘의 크립토 제호 레퍼런스 10</h1>
+        <p>실제 페이지에 바로 적용하지 않고, Naive Art / Hand-drawn 방향 안에서 덜 유치한 선택지를 비교하기 위한 보드입니다. 마음에 드는 번호를 고르거나, 두 안을 섞는 식으로 다음 라운드를 진행하면 됩니다.</p>
+      </div>
+      <div class="rule">Pick 1-2 Directions</div>
+    </section>
+
+    <main class="grid">
+      <article class="card">
+        <div class="card-head"><span>Ref 01</span><span class="tag">soft underline</span></div>
+        <div class="stage">
+          <div class="logo logo-01"><span class="word">오늘의</span> <span class="word">크립토</span></div>
+        </div>
+        <p class="note"><strong>가장 기존안에 가까운 개선형.</strong> 큰 노랑 면은 남기되 더 낮고 거칠게 깔아 손으로 칠한 느낌을 줍니다.<span class="small">safe / easy to apply</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 02</span><span class="tag">cutout badge</span></div>
+        <div class="stage">
+          <div class="logo logo-02">오늘의 크립토</div>
+        </div>
+        <p class="note"><strong>종이 오려 붙인 제호.</strong> 유치함보다 사물감이 강하고, 매거진 표지 같은 인상을 냅니다.<span class="small">bold / medium effort</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 03</span><span class="tag">mono naive</span></div>
+        <div class="stage">
+          <div class="logo logo-03"><span class="word">오늘의</span><span class="word">크립토</span></div>
+        </div>
+        <p class="note"><strong>손글씨 대신 어색한 활자 배치.</strong> 크립토/신문 느낌이 살아서 덜 귀엽고 더 편집물처럼 보입니다.<span class="small">editorial / easy to apply</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 04</span><span class="tag">letter grid</span></div>
+        <div class="stage">
+          <div class="logo logo-04" aria-label="오늘의 크립토">
+            <span class="char">오</span><span class="char">늘</span><span class="char">의</span><span class="char"></span>
+            <span class="char">크</span><span class="char">립</span><span class="char">토</span>
+          </div>
+        </div>
+        <p class="note"><strong>삐뚤어진 글자판.</strong> 가장 Naive Art에 가깝지만, 너무 장난스럽게 느껴질 수 있습니다.<span class="small">expressive / needs tuning</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 05</span><span class="tag">sun mark</span></div>
+        <div class="stage">
+          <div class="logo logo-05">오늘의 크립토</div>
+        </div>
+        <p class="note"><strong>아침 발행의 태양 표식.</strong> 손글씨는 유지하되 노랑을 상징으로만 써서 더 담백합니다.<span class="small">warm / easy to apply</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 06</span><span class="tag">two-line sign</span></div>
+        <div class="stage">
+          <div class="logo logo-06"><span class="word">오늘의</span><span class="word">크립토</span></div>
+        </div>
+        <p class="note"><strong>두 줄 간판형.</strong> 모바일에서 안정적이고, 손맛과 정보성을 적당히 나눕니다.<span class="small">practical / easy to apply</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 07</span><span class="tag">paper blocks</span></div>
+        <div class="stage">
+          <div class="logo logo-07"><span class="word">오늘의</span><span class="word">크립토</span></div>
+        </div>
+        <p class="note"><strong>신문 조각 콜라주.</strong> 귀여움보다 그래픽 포스터 느낌이 강합니다. 다만 페이지 상단에서는 존재감이 큽니다.<span class="small">graphic / medium effort</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 08</span><span class="tag">side rules</span></div>
+        <div class="stage">
+          <div class="logo logo-08">오늘의 크립토</div>
+        </div>
+        <p class="note"><strong>좌우 선으로 잡아주는 손글씨.</strong> 어색한 손글씨를 편집 구조 안에 넣어 유치함을 줄입니다.<span class="small">balanced / easy to apply</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 09</span><span class="tag">stamp seal</span></div>
+        <div class="stage">
+          <div class="logo logo-09"><span class="word">오늘의</span> <span class="word">크립토</span></div>
+        </div>
+        <p class="note"><strong>도장/실(seal) 형태.</strong> 매일 찍는 발행물 같은 인상이 있고, 제호가 하나의 마크처럼 보입니다.<span class="small">identity mark / needs tuning</span></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>Ref 10</span><span class="tag">raw doodle</span></div>
+        <div class="stage">
+          <div class="logo logo-10" aria-label="오늘의 크립토">
+            <span class="char">오</span><span class="char">늘</span><span class="char">의</span>
+            <span class="char"> </span>
+            <span class="char">크</span><span class="char">립</span><span class="char">토</span>
+          </div>
+        </div>
+        <p class="note"><strong>가장 손그림에 가까운 안.</strong> 일부러 덜 정돈했지만, 최종 적용 전에는 크기와 획 두께를 더 줄이는 편이 좋습니다.<span class="small">naive / needs refinement</span></p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

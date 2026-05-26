@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today in Crypto English Logo Drafts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0d;
+    --paper:#fff;
+    --paper-soft:#f7f7f2;
+    --yellow:#ffd400;
+    --mono:"Space Mono",ui-monospace,monospace;
+    --sans:"Gothic A1","Helvetica Neue",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    padding:30px 22px 70px;
+  }
+  .page{max-width:1080px;margin:0 auto}
+  .intro{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    padding-bottom:22px;
+    border-bottom:3px solid var(--ink);
+    margin-bottom:24px;
+  }
+  h1{
+    font-size:clamp(31px,5vw,58px);
+    line-height:1.02;
+    font-weight:900;
+    letter-spacing:0;
+    word-break:keep-all;
+  }
+  .intro p{
+    max-width:720px;
+    margin-top:10px;
+    font-size:15px;
+    line-height:1.65;
+    color:#333;
+    word-break:keep-all;
+  }
+  .label{
+    flex:0 0 auto;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    border:2px solid var(--ink);
+    padding:9px 12px;
+    background:var(--paper);
+  }
+  .fixed-ko{
+    border:2.5px solid var(--ink);
+    margin-bottom:18px;
+    background:var(--paper-soft);
+  }
+  .fixed-ko .stage{min-height:160px}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .card{
+    border:2.5px solid var(--ink);
+    background:var(--paper);
+    min-height:250px;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+  }
+  .card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:2px solid var(--ink);
+    padding:9px 12px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .stage{
+    min-height:152px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px 18px 19px;
+    overflow:hidden;
+  }
+  .note{
+    border-top:2px solid var(--ink);
+    padding:11px 13px 13px;
+    font-size:13px;
+    line-height:1.55;
+    color:#333;
+    word-break:keep-all;
+  }
+  .note strong{color:var(--ink)}
+  .logo{
+    position:relative;
+    display:inline-block;
+    font-family:var(--mono);
+    font-weight:700;
+    line-height:1;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .logo .word{display:inline-block;position:relative}
+  .sun{
+    position:absolute;
+    display:block;
+    width:.52em;
+    height:.52em;
+    border:2.3px solid var(--ink);
+    background:var(--yellow);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .ko-logo{
+    font-size:clamp(38px,6vw,64px);
+    letter-spacing:-.03em;
+  }
+  .ko-logo .sun{right:-.62em;top:-.32em}
+
+  .en-logo{
+    font-size:clamp(32px,4.5vw,54px);
+    letter-spacing:-.055em;
+  }
+  .en-01 .sun{right:-.55em;top:-.32em}
+
+  .en-02 .word:nth-child(1){letter-spacing:-.07em}
+  .en-02 .word:nth-child(2){
+    font-size:.74em;
+    letter-spacing:.02em;
+    margin:0 .26em;
+    transform:translateY(-.08em);
+  }
+  .en-02 .word:nth-child(3){letter-spacing:-.07em}
+  .en-02 .sun{right:-.48em;top:-.3em;width:.48em;height:.48em}
+
+  .en-03{
+    display:grid;
+    grid-template-columns:auto auto;
+    gap:.02em .28em;
+    white-space:normal;
+    text-align:left;
+    line-height:.88;
+    letter-spacing:-.06em;
+  }
+  .en-03 .word:nth-child(1){grid-column:1/3}
+  .en-03 .word:nth-child(2){font-size:.7em;letter-spacing:.03em;transform:translateY(.05em)}
+  .en-03 .word:nth-child(3){transform:translateX(-.16em)}
+  .en-03 .sun{right:-.36em;top:-.24em;width:.44em;height:.44em}
+
+  .en-04{
+    letter-spacing:-.075em;
+    transform:rotate(-.4deg);
+  }
+  .en-04 .word:nth-child(2){
+    font-size:.68em;
+    margin:0 .16em;
+    letter-spacing:.03em;
+  }
+  .en-04 .sun{left:2.2em;top:-.38em;width:.44em;height:.44em}
+
+  .en-05{
+    font-size:clamp(30px,4.2vw,50px);
+    letter-spacing:-.035em;
+  }
+  .en-05 .word:nth-child(2){
+    font-size:.72em;
+    margin:0 .2em;
+    letter-spacing:.04em;
+  }
+  .en-05 .word:nth-child(3){
+    font-size:1.08em;
+    letter-spacing:-.065em;
+  }
+  .en-05 .sun{right:-.5em;bottom:-.24em;width:.42em;height:.42em}
+
+  @media (max-width:760px){
+    body{padding:22px 14px 52px}
+    .intro{display:block}
+    .label{display:inline-block;margin-top:16px}
+    .grid{grid-template-columns:1fr}
+    .card{min-height:230px}
+    .stage{min-height:138px}
+    .ko-logo{font-size:clamp(31px,10vw,42px)}
+    .en-logo{font-size:clamp(29px,9vw,40px)}
+    .en-05{font-size:clamp(27px,8.6vw,38px)}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="intro">
+    <div>
+      <h1>English Logo Drafts 5</h1>
+      <p>한글 제호는 `single sun dot` 방향으로 확정하고, 같은 굵은 모노/어색한 편집물 감각을 영어 제호 `Today in Crypto`에 맞춰 5개로 변주했습니다.</p>
+    </div>
+    <div class="label">ko fixed / en options</div>
+  </section>
+
+  <section class="fixed-ko">
+    <div class="card-head"><span>KO fixed</span><span>single sun dot</span></div>
+    <div class="stage">
+      <div class="logo ko-logo">오늘의 크립토<span class="sun"></span></div>
+    </div>
+    <p class="note"><strong>확정 방향.</strong> 영어안은 이 밀도와 톤을 기준으로 맞췄습니다.</p>
+  </section>
+
+  <main class="grid">
+    <article class="card">
+      <div class="card-head"><span>EN 01</span><span>direct match</span></div>
+      <div class="stage">
+        <div class="logo en-logo en-01">Today in Crypto<span class="sun"></span></div>
+      </div>
+      <p class="note"><strong>가장 한글안과 가까운 직역형.</strong> 같은 위치에 태양 점을 얹은 기본 후보입니다.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><span>EN 02</span><span>small in</span></div>
+      <div class="stage">
+        <div class="logo en-logo en-02"><span class="word">Today</span><span class="word">in</span><span class="word">Crypto</span><span class="sun"></span></div>
+      </div>
+      <p class="note"><strong>`in`을 작게 접은 안.</strong> 긴 영어 제호가 더 간결하게 보입니다.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><span>EN 03</span><span>two-line offset</span></div>
+      <div class="stage">
+        <div class="logo en-logo en-03"><span class="word">Today</span><span class="word">in</span><span class="word">Crypto</span><span class="sun"></span></div>
+      </div>
+      <p class="note"><strong>두 줄 오프셋.</strong> 모바일에서는 안정적이지만 한글안보다 존재감이 커집니다.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><span>EN 04</span><span>sun over today</span></div>
+      <div class="stage">
+        <div class="logo en-logo en-04"><span class="word">Today</span><span class="word">in</span><span class="word">Crypto</span><span class="sun"></span></div>
+      </div>
+      <p class="note"><strong>Today 위에 해를 둔 안.</strong> 의미상 가장 자연스럽고 장식이 단어 쪽으로 붙습니다.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><span>EN 05</span><span>crypto weight</span></div>
+      <div class="stage">
+        <div class="logo en-logo en-05"><span class="word">Today</span><span class="word">in</span><span class="word">Crypto</span><span class="sun"></span></div>
+      </div>
+      <p class="note"><strong>Crypto를 조금 더 크게.</strong> 매체 주제가 더 선명하지만 한글안과의 균형은 봐야 합니다.</p>
+    </article>
+  </main>
+</div>
+</body>
+</html>
