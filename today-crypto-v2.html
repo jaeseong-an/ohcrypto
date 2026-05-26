@@ -33,24 +33,75 @@
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
 
-  /* ===== 키치 상단: 메탈 그라데이션 띠 ===== */
-  .topbar{
-    height:34px;
-    background:linear-gradient(180deg,#e8e8e8 0%,#fafafa 18%,#bdbdbd 50%,#fafafa 82%,#d4d4d4 100%);
+  /* ===== 상단 내비게이션 ===== */
+  .site-nav{
     border-bottom:2px solid var(--ink);
-    display:flex;align-items:center;overflow:hidden;
-    position:relative;
+    background:var(--paper);
+    position:sticky;top:0;z-index:10;
   }
-  .topbar .ticker{
-    white-space:nowrap;
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--ink);
-    animation:scroll 28s linear infinite;
+  .nav-trigger{
+    height:30px;
+    max-width:980px;margin:0 auto;
+    padding:0 14px;
+    display:flex;align-items:center;justify-content:space-between;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   }
-  .topbar .ticker span{margin:0 26px}
-  .topbar .ticker .y{background:var(--yellow);padding:1px 7px;border:1px solid var(--ink)}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .nav-trigger::after{
+    content:"+";
+    width:18px;height:18px;
+    border:2px solid var(--ink);
+    background:var(--yellow);
+    display:grid;place-items:center;
+    line-height:1;
+  }
+  .site-nav .nav-inner{
+    max-width:980px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-left:2px solid var(--ink);
+    position:absolute;left:50%;top:32px;width:min(980px,100%);
+    transform:translate(-50%,-12px);
+    opacity:0;visibility:hidden;pointer-events:none;
+    background:var(--paper);
+    box-shadow:0 8px 0 rgba(13,13,13,.12);
+    transition:opacity .15s,transform .15s,visibility .15s;
+  }
+  .site-nav:hover .nav-inner,
+  .site-nav:focus-within .nav-inner{
+    opacity:1;visibility:visible;pointer-events:auto;
+    transform:translate(-50%,0);
+  }
+  .nav-card{
+    min-height:188px;
+    padding:12px 14px 10px;
+    border-right:2px solid var(--ink);
+    color:var(--ink);text-decoration:none;
+    display:flex;flex-direction:column;gap:0;
+    background:var(--paper);
+    transition:background .15s;
+  }
+  .nav-card:hover{background:var(--yellow)}
+  .nav-card:hover .nav-art{background:var(--paper)}
+  .nav-art{
+    min-height:108px;
+    margin:-12px -14px 12px;
+    border-bottom:2px solid var(--ink);
+    display:grid;place-items:center;
+    background:
+      linear-gradient(90deg,rgba(13,13,13,.06) 1px,transparent 1px),
+      linear-gradient(rgba(13,13,13,.06) 1px,transparent 1px),
+      var(--paper-dim);
+    background-size:14px 14px;
+  }
+  .nav-art svg{width:70px;height:70px}
+  .nav-card strong{
+    font-family:var(--sans);font-weight:800;
+    font-size:clamp(17px,2.4vw,23px);line-height:1.05;letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+  .nav-card span{
+    font-family:var(--mono);font-size:10px;line-height:1.35;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+  }
 
   /* ===== 마스트헤드 ===== */
   header.masthead{
@@ -64,6 +115,7 @@
     font-size:11px;letter-spacing:.28em;text-transform:uppercase;
     color:var(--ink-soft);margin-bottom:18px;
   }
+  body.ko .kicker{letter-spacing:.08em;text-transform:none}
   /* 제호: mono naive + single sun dot */
   .logo-ko{
     font-family:var(--mono),var(--sans);
@@ -127,6 +179,125 @@
   }
   .dateline .issue{background:var(--yellow);padding:2px 9px;border:1.5px solid var(--ink)}
 
+  .toc{
+    margin:22px 0 0;
+    border:2px solid var(--ink);
+    background:var(--paper);
+  }
+  .toc summary{
+    list-style:none;
+    cursor:pointer;
+    padding:10px 14px;
+    font-family:var(--mono);font-size:12px;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::after{
+    content:"+";
+    width:18px;height:18px;
+    border:2px solid var(--ink);
+    background:var(--yellow);
+    display:grid;place-items:center;
+    line-height:1;
+  }
+  .toc[open] summary::after{content:"-"}
+  .toc ol{
+    list-style:none;
+    border-top:2px solid var(--ink);
+    padding:10px 14px 12px;
+  }
+  .toc li + li{margin-top:8px}
+  .toc a{
+    color:var(--ink);text-decoration:none;
+    font-family:var(--mono);font-size:13px;line-height:1.5;
+    border-bottom:2px solid transparent;
+  }
+  .toc a:hover{border-bottom-color:var(--yellow)}
+
+  .issue-intro{
+    padding:24px 0 18px;
+    border-bottom:2px solid var(--ink);
+  }
+  .issue-intro p{margin-bottom:0}
+  .feature-image{
+    margin:24px 0 0;
+    border:2px solid var(--ink);
+    background:var(--paper-dim);
+  }
+  .feature-image img{
+    display:block;width:100%;height:auto;
+  }
+
+  .channel-section{
+    padding:40px 0;
+    border-bottom:2px solid var(--ink);
+  }
+  .channel-head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:16px;
+    margin-bottom:18px;
+  }
+  .channel-head h2{
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.05;
+    font-weight:800;
+    letter-spacing:-.02em;
+  }
+  .channel-head p{
+    max-width:360px;
+    font-family:var(--mono);font-size:12px;line-height:1.55;
+    color:var(--ink-soft);
+  }
+  .channel-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+  .content-card{
+    border:2.5px solid var(--ink);
+    background:var(--paper);
+    min-height:250px;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .content-card:hover .note strong{box-shadow:inset 0 -0.35em 0 var(--yellow)}
+  .card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:2px solid var(--ink);
+    padding:9px 12px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .stage{
+    min-height:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 18px 18px;
+    overflow:hidden;
+    background:var(--paper);
+  }
+  .stage img{display:block;width:100%;height:100%;object-fit:cover}
+  .stage svg{width:116px;height:116px}
+  .note{
+    border-top:2px solid var(--ink);
+    padding:12px 14px 14px;
+    font-size:13px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    word-break:keep-all;
+  }
+  .note strong{color:var(--ink)}
+
   /* ===== 기사 ===== */
   main{padding:0 0 30px}
   .story{padding:38px 0;border-bottom:2px solid var(--ink)}
@@ -143,6 +314,14 @@
   .story h2 a{color:var(--ink);text-decoration:none;
     box-shadow:inset 0 -0.32em 0 var(--yellow);transition:box-shadow .2s}
   .story h2 a:hover{box-shadow:inset 0 -0.7em 0 var(--yellow)}
+  .story h3{
+    font-family:var(--sans);font-weight:800;font-size:22px;line-height:1.25;
+    margin:24px 0 12px;letter-spacing:-.01em;
+  }
+  .story h4{
+    font-family:var(--mono);font-size:14px;line-height:1.4;
+    margin:20px 0 10px;letter-spacing:.04em;text-transform:uppercase;
+  }
   .lede{margin-bottom:18px}
   blockquote{
     border-left:4px solid var(--yellow);
@@ -151,19 +330,13 @@
   }
   blockquote cite{display:block;font-style:normal;font-size:11px;letter-spacing:.08em;
     color:var(--ink);margin-top:10px;text-transform:uppercase}
-  .aside{
-    font-family:var(--hand);font-weight:300;font-size:18px;line-height:1.6;
+  .code-box{
+    font-family:var(--mono);font-size:14px;line-height:1.6;
     color:var(--ink);margin:20px 0;
     padding:14px 18px;background:var(--paper-dim);
     border:2px dashed var(--ink);
-  }
-  /* 에디터 라벨 — 노란 손글씨 */
-  .aside::before{
-    content:"Editor";
-    display:block;width:fit-content;font-family:var(--hand);font-weight:700;
-    font-size:19px;letter-spacing:.02em;color:var(--yellow);
-    -webkit-text-stroke:0.6px var(--ink);
-    margin-bottom:4px;
+    overflow:auto;
+    white-space:pre-wrap;
   }
   .plus{margin-top:14px;padding-left:24px;position:relative;
     font-family:var(--mono);font-size:14px;line-height:1.6;color:var(--ink-soft)}
@@ -177,18 +350,6 @@
   /* 손그림 일러스트 자리 */
   .doodle{display:flex;justify-content:center;margin:10px 0 24px}
   .doodle svg{width:160px;height:auto}
-
-  /* 영어판 작업영역 */
-  .draft-tools{margin-top:20px;border:2px solid var(--ink);background:var(--paper-dim);padding:0}
-  .draft-tools .label{
-    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-    background:var(--ink);color:var(--paper);padding:7px 12px;display:flex;gap:10px;align-items:center;
-  }
-  .draft-tools .label .toggle{margin-left:auto;display:flex;gap:6px}
-  .draft-tools .label .toggle button{font-family:var(--mono);font-size:10px;padding:2px 9px;cursor:pointer;
-    border:1px solid var(--paper);background:transparent;color:var(--paper)}
-  .draft-tools .label .toggle button.on{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
-  .draft-tools .pane{padding:14px 16px;font-family:var(--mono);font-size:14px;color:var(--ink-soft);line-height:1.6}
 
   /* 푸터 */
   footer{padding:34px 0 70px;text-align:center}
@@ -210,50 +371,99 @@
   body.ko span[data-lang="ko"]{display:inline}
   body.en span[data-lang="en"]{display:inline}
 
+  @media (max-width:720px){
+    .site-nav .nav-inner{grid-template-columns:repeat(2,1fr)}
+    .nav-card{min-height:170px}
+    .channel-head{display:block}
+    .channel-head p{margin-top:10px}
+    .channel-grid{grid-template-columns:1fr}
+  }
+
   ::selection{background:var(--yellow);color:var(--ink)}
 </style>
 </head>
 <body class="ko">
 
-  <!-- 키치 상단: 메탈 그라데이션 + 흐르는 티커 -->
-  <div class="topbar">
-    <div class="ticker" data-lang="ko">
-      <span class="y">매일 아침 발행</span>
-      <span>오늘의 크립토</span>
-      <span>제 1 호</span>
-      <span class="y">한 사람의 시선으로</span>
-      <span>오늘의 크립토</span>
-      <span>제 1 호</span>
-      <!-- 반복(스크롤 이음새용) -->
-      <span class="y">매일 아침 발행</span>
-      <span>오늘의 크립토</span>
-      <span>제 1 호</span>
-      <span class="y">한 사람의 시선으로</span>
-      <span>오늘의 크립토</span>
-      <span>제 1 호</span>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-trigger">
+      <span data-lang="ko">오늘의 메뉴</span>
+      <span data-lang="en">Today's Menu</span>
     </div>
-    <div class="ticker" data-lang="en">
-      <span class="y">EVERY MORNING</span>
-      <span>TODAY IN CRYPTO</span>
-      <span>ISSUE No.1</span>
-      <span class="y">THROUGH ONE PAIR OF EYES</span>
-      <span>TODAY IN CRYPTO</span>
-      <span>ISSUE No.1</span>
-      <!-- 반복(스크롤 이음새용) -->
-      <span class="y">EVERY MORNING</span>
-      <span>TODAY IN CRYPTO</span>
-      <span>ISSUE No.1</span>
-      <span class="y">THROUGH ONE PAIR OF EYES</span>
-      <span>TODAY IN CRYPTO</span>
-      <span>ISSUE No.1</span>
+    <div class="nav-inner">
+      <a class="nav-card" href="today-crypto-v2.html">
+        <div class="nav-art" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="50" cy="45" r="20" fill="#ffd400"/>
+            <path d="M50 14v10M50 66v10M19 45h10M71 45h10M28 23l7 7M65 60l7 7M72 23l-7 7M35 60l-7 7"/>
+            <path d="M40 43q3 4 7 0M53 43q3 4 7 0"/>
+            <path d="M41 53q9 7 18 0"/>
+          </svg>
+        </div>
+        <strong data-lang="ko">오늘의 크립토</strong>
+        <strong data-lang="en">Today in Crypto</strong>
+        <span data-lang="ko">크립토 뉴스 큐레이션</span>
+        <span data-lang="en">Daily crypto briefing</span>
+      </a>
+      <a class="nav-card" href="oh-defi.html">
+        <div class="nav-art" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="13" y="22" width="25" height="22" rx="2" fill="#ffd400"/>
+            <rect x="62" y="22" width="25" height="22" rx="2"/>
+            <rect x="37" y="61" width="26" height="22" rx="2"/>
+            <path d="M38 33h18"/>
+            <path d="M62 34q-12 0-12 12v13"/>
+            <path d="M38 34q12 0 12 12"/>
+            <path d="M63 72q14-2 14-18"/>
+            <path d="M77 54l-5 6M77 54l5 6"/>
+            <path d="M25 44v12q0 16 12 16"/>
+            <path d="M37 72l-6-5M37 72l-6 5"/>
+            <circle cx="25" cy="33" r="4" fill="#fff"/>
+            <path d="M69 33h11M44 72h12"/>
+          </svg>
+        </div>
+        <strong data-lang="ko">오!디파이</strong>
+        <strong data-lang="en">Oh! DeFi</strong>
+        <span data-lang="ko">프로토콜이 지배하는 새로운 금융</span>
+        <span data-lang="en">New finance ruled by protocols</span>
+      </a>
+      <a class="nav-card" href="oh-decentralization.html">
+        <div class="nav-art" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="22" cy="29" r="8" fill="#ffd400"/>
+            <circle cx="49" cy="18" r="7"/>
+            <circle cx="77" cy="32" r="8"/>
+            <circle cx="30" cy="62" r="7"/>
+            <circle cx="63" cy="70" r="9"/>
+            <circle cx="82" cy="62" r="5"/>
+            <path d="M30 27l12-6M56 21l14 7M29 36l-2 18M36 63l18 5M70 67l8-3M70 38l-9 24M37 57l34-21M28 31l44 4"/>
+          </svg>
+        </div>
+        <strong data-lang="ko">오!탈중앙</strong>
+        <strong data-lang="en">Oh! Decentralization</strong>
+        <span data-lang="ko">탈중앙 이념의 허와 실</span>
+        <span data-lang="en">The promise and cracks of decentralization</span>
+      </a>
+      <a class="nav-card" href="archive.html">
+        <div class="nav-art" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 30h64v50H18z" fill="#fff"/>
+            <path d="M24 22h52l6 8H18z" fill="#ffd400"/>
+            <path d="M32 44h36M32 56h28M32 68h20"/>
+          </svg>
+        </div>
+        <strong data-lang="ko">오!아카이브</strong>
+        <strong data-lang="en">Oh! Archive</strong>
+        <span data-lang="ko">그간 발행호 모음</span>
+        <span data-lang="en">Past issues</span>
+      </a>
     </div>
-  </div>
+  </nav>
 
 <div class="wrap">
 
   <header class="masthead">
-    <div class="kicker" data-lang="ko">디지털 자산, 매일 아침, 한 사람의 시선으로</div>
-    <div class="kicker" data-lang="en">DIGITAL ASSETS · EVERY MORNING · ONE PAIR OF EYES</div>
+    <div class="kicker" data-lang="ko">한 사람이 만듭니다. 허술해도 봐주세요.</div>
+    <div class="kicker" data-lang="en">Made by one person. Please forgive the rough edges.</div>
 
     <div data-lang="ko">
       <div class="logo-ko">오늘의 크립토<span class="sun-dot" aria-hidden="true"></span></div>
@@ -270,107 +480,132 @@
     </div>
   </header>
 
-  <div class="dateline">
+  <div class="dateline" id="issue-001">
     <span class="issue" data-lang="ko">제 1 호</span>
     <span class="issue" data-lang="en">ISSUE No.1</span>
-    <span data-lang="ko">2026. 05. 23. SAT</span>
-    <span data-lang="en">SAT, MAY 23, 2026</span>
+    <span data-lang="ko">2026. 05. 26. TUE</span>
+    <span data-lang="en">TUE, MAY 26, 2026</span>
   </div>
 
   <main>
+    <details class="toc" open>
+      <summary>
+        <span data-lang="ko">오늘의 목차</span>
+        <span data-lang="en">Today's Table</span>
+      </summary>
+      <ol data-lang="ko">
+        <li><a href="#story-01">01 모듈 해킹과 인공지능 결제</a></li>
+        <li><a href="#story-02">02 모듈 실패가 아닌 것도 있어염</a></li>
+      </ol>
+      <ol data-lang="en">
+        <li><a href="#story-01">01 Module Hacks and AI Payments</a></li>
+        <li><a href="#story-02">02 Some Things Are Not Module Failures</a></li>
+      </ol>
+    </details>
 
-    <!-- 01 케빈 워시 -->
-    <article class="story">
+    <section class="issue-intro">
+      <div data-lang="ko">
+        <p class="lede">바람잘 날 없는 디파이 생태계의 소식들에 집중해봤습니다. 어려운 거 같기도 하고, 또 되게 허술한 거 같기도 하고, 미래인 건 분명한 거 같은데 또 막 탈중앙은 무슨 탈중앙이야 싶기도 하고 그러네요잉?</p>
+      </div>
+      <div data-lang="en">
+        <p class="lede">Today we are focusing on a few stories from the DeFi ecosystem, where there never seems to be a quiet day. Sometimes it feels difficult, sometimes oddly flimsy, and it still seems like the future. Then again, sometimes you look at it and think, "Decentralized? Really?"</p>
+      </div>
+      <figure class="feature-image">
+        <img src="today_in_crypto/260526/today%20in%20crypto_260526.png" alt="Hand-drawn DeFi ecosystem with a worried vault connected to protocol boxes, coins, and stormy flows">
+      </figure>
+    </section>
+
+    <article class="story" id="story-01">
       <div data-lang="ko">
         <span class="story-num">01</span>
-        <h2><a href="https://beincrypto.com/kevin-warsh-sworn-in-fed-chair-2026/" target="_blank" rel="noopener">인하시키려 보낸 망치가, 인상을 압박받는다</a></h2>
+        <h2><a href="#story-01">모듈 해킹과 인공지능 결제</a></h2>
 
-        <!-- 손그림: 망치 -->
-        <div class="doodle">
-          <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0d0d0d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <!-- 망치 머리 -->
-            <path d="M44 30 q-3 -8 6 -11 l40 -10 q9 -2 11 6 l4 16 q2 8 -7 10 l-40 10 q-9 2 -11 -6 z" transform="rotate(-14 70 35)"/>
-            <!-- 손잡이 -->
-            <path d="M86 52 q3 4 0 9 l-34 50 q-4 6 -10 2 q-6 -4 -2 -10 l34 -50 q3 -4 8 -3" />
-            <!-- 노란 충격 별 -->
-            <g stroke="#e6be00" stroke-width="2.2">
-              <path d="M150 40 l6 -14 l5 14 l14 -3 l-10 11 l9 12 l-15 -6 l-7 13 l-2 -15 l-15 1 l13 -8 z" fill="#ffd400"/>
-            </g>
-            <!-- 작은 땀방울/물음표 -->
-            <path d="M120 80 q6 -6 0 -12" stroke-width="2"/>
-            <circle cx="120" cy="84" r="1.4" fill="#0d0d0d" stroke="none"/>
-          </svg>
-        </div>
+        <p class="lede">이더리움과 베이스에서 “SquidRouterModule” 이름의 제3자 Safe 모듈이 악용돼 약 320만 달러가 빠져나간 것으로 보입니다. Squid는 “이 모듈은 우리가 만들거나 배포한 것이 아니고, 이름만 SquidRouterModule일 뿐 핵심 Squid Router 계약과 다르다”고 선을 씨게 그었습니다. 그러거나 말거나. 중요한 지점은 Safe 자체보다 '지갑에 승인된 외부 모듈이 사실상 금고의 대리인처럼 행동할 수 있다'는 점이고, 이 지점에서 해킹이 발견될 수 있다는 점입니다.</p>
 
-        <p class="lede">케빈 워시(Kevin Warsh)가 5월 22일 연방준비제도 의장으로 취임 선서를 했다. FOMC는 같은 날 그를 만장일치로 추인했다. 하지만 그 만장일치 뒤의 그림은 매끄럽지 않다. 상원 인준은 54대 45 — 현대 들어 가장 표차가 적은 연준 의장 인준이었다. 트럼프가 파월을 향해 거듭 분노를 쏟으며 "금리를 내릴 사람"으로 워시를 앉혔다는 건 누구나 안다. 그런데 막상 의자에 앉은 워시가 처음 꺼낸 말은 "나는 엄격하게 독립적인 의장이 되겠다"였다.</p>
+        <p class="lede">이번 Safe 관련 사고의 핵심은 '지갑 자체가 털렸나?'보다 '지갑에 붙인 외부 모듈이 얼마나 큰 권한을 갖고 있었나?'이다. Safe는 여러 사람이 함께 서명해야 자산이 움직이는 멀티시그 지갑으로 많이 쓰인다. DAO나 프로젝트 금고가 자주 사용한다. 그런데 여기에 외부 모듈을 붙이면 특정 작업을 자동화할 수 있다. 이를테면 매월 누군가에게 운영비 얼마를 자동으로 보낼 수 있다. 이런 부분은 매번 멀티시그 3명이 승인하려면 시간이 오래 걸리고 비효율적일 거다. 그래서 Safe에 모듈을 붙여서 '이 모듈은 우리가 허락한 프로그램이니까 이 모듈이 정해진 규칙 안에서 요청하면 매번 3명의 서명을 받지 않아도 Safe 자금을 움직일 수 있게 해줘 아라쮜~?'라고 하는 것이다.</p>
 
-        <blockquote>
-          워시는 "엄격하게 독립적인" 의장이 되겠다며, 차입 비용을 낮추라는 트럼프의 거듭된 요구에 맞서겠다고 했다.
-          <cite>BeInCrypto</cite>
-        </blockquote>
+        <p class="lede">인공지능이 결제까지 도맡을 세상이 곧 다가온다는 느낌이 든다 아닙니까? Coinbase는 작년 5월에 x402를 소개했습니다. 이는 인공지능 에이전트나 앱이 HTTP 요청 흐름 안에서 스테이블코인으로 API, 서비스, 콘텐츠 비용을 지불할 수 있게 하는 결제 프로토콜입니다. 이후 Cloudflare와의 x402 Foundation, Linux Foundation 편입, AWS Bedrock AgentCore Payments 프리뷰 등으로 이어지며, 지금은 ‘AI 에이전트가 돈을 쓰는 인터넷’의 초기 표준 후보 중 하나가 되고 있습니다. 앞에서 해킹당한 모듈이 인공지능이 되는 세상도 상상해볼 수 있을 거 같은데, 권한을 얼만큼 주고 어떻게 다양한 상황에 대비할 수 있을지 앞으로 지켜봐야할 거 같습니다. 아! 흥미진진해라~!!</p>
 
-        <p class="lede">그렇다면 트럼프는 왜 굳이 워시를 지명했을까. 파보니 이야기는 가설보다 더 비틀려 있었다. 트럼프는 작년에 중앙은행의 "레짐 체인지"를 외치던 워시를, 파월 체제를 부술 망치로 본 것이다. 문제는 그 망치가 손에 쥐어지자마자 경제가 정반대로 움직였다는 데 있다.</p>
-
-        <p class="lede">지금 미국은 인하를 논할 상황이 아니다. 4월 생산자물가지수(PPI)는 전년 대비 6% 뛰었다 — 2022년 12월 이후 가장 빠르다. 그래서 시장은 인하는커녕, 연말까지 <em>인상</em> 가능성을 42%나 가격에 반영하고 있다. 인하시키라고 보낸 사람이, 인상을 압박받는 자리에 앉은 셈이다.</p>
-
-        <p class="lede">크립토 쪽도 묘하다. 워시의 자산 공개에서 스테이블코인 프로젝트 Basis와 크립토 운용사 Bitwise 지분이 드러났는데, 정작 그는 비트코인이 교환 수단으로 쓰기엔 변동성이 너무 크다고 주장해온 사람이다. 크립토에 돈은 넣되, 크립토가 화폐가 된다는 서사는 믿지 않는 셈이다.</p>
-
-        <p class="lede">결국 봐야 할 건 하나로 모인다. <strong>6월 16~17일, 워시의 첫 FOMC.</strong> 그 자리엔 75년 만에 처음으로, 전임 의장(파월)이 평의원 자격으로 같은 테이블에 앉는다. 인하를 바라는 대통령, 인상을 가리키는 물가, 독립을 선언한 신임 의장. 첫 회의가 그 선언이 수사였는지 진심이었는지를 가를 것이다.</p>
-
-        <p class="aside">크립토에 돈은 넣고, 크립토가 돈이 된다는 건 안 믿고. 제도권의 속마음이 딱 이 한 줄 아닐까?</p>
-
-        <p class="plus">트럼프의 압박 강도 — <a href="https://finance.yahoo.com/economy/policy/articles/fed-under-intense-trump-pressure-131856664.html" target="_blank" rel="noopener">Fed under intense Trump pressure</a></p>
-        <p class="plus">'전임자 동석'의 기이함 — <a href="http://www.cbsnews.com/news/kevin-warsh-federal-reserve-chair-interest-rates/" target="_blank" rel="noopener">How much sway will Warsh really have? (CBS)</a></p>
-        <p class="plus">채권 자경단 관점 — <a href="https://www.cnbc.com/2026/05/18/the-fed-will-have-to-raise-interest-rates-in-july-to-appease-bond-vigilantes-yardeni-says.html" target="_blank" rel="noopener">Fed may have to hike in July (CNBC)</a></p>
+        <p class="plus">Safe 모듈 익스플로잇 보도 — <a href="https://www.theblock.co/post/402487/we-dont-know-who-deployed-this-squid-distances-itself-from-3-2-million-third-party-module-exploit" target="_blank" rel="noopener">theblock.co</a></p>
+        <p class="plus">Cointelegraph의 Safe·Squid 정리 — <a href="https://cointelegraph.com/news/squid-safe-labs-third-party-module-3-2-million-exploit" target="_blank" rel="noopener">cointelegraph.com</a></p>
+        <p class="plus">Safe 공식 문서 - 모듈이란 무엇인가 — <a href="https://docs.safe.global/advanced/smart-account-modules" target="_blank" rel="noopener">docs.safe.global</a></p>
+        <p class="plus">Coinbase의 x402 최초 소개 — <a href="https://www.coinbase.com/en-it/developer-platform/discover/launches/x402" target="_blank" rel="noopener">coinbase.com</a></p>
+        <p class="plus">Cloudflare와 Coinbase의 x402 Foundation 발표 — <a href="https://blog.cloudflare.com/x402" target="_blank" rel="noopener">blog.cloudflare.com</a></p>
+        <p class="plus">AWS Bedrock AgentCore Payments 프리뷰 — <a href="https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-agentcore-payments-preview/" target="_blank" rel="noopener">aws.amazon.com</a></p>
+        <p class="plus">x402가 Polygon을 지원하기 시작했다는 Coinbase 발표 — <a href="https://www.coinbase.com/developer-platform/discover/launches/x402facilitator-polygon" target="_blank" rel="noopener">coinbase.com</a></p>
       </div>
 
-      <!-- 영어판 -->
       <div data-lang="en">
         <span class="story-num">01</span>
-        <h2><a href="#">[ English headline — 네가 직접 영작 ]</a></h2>
-        <div class="doodle">
-          <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0d0d0d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M44 30 q-3 -8 6 -11 l40 -10 q9 -2 11 6 l4 16 q2 8 -7 10 l-40 10 q-9 2 -11 -6 z" transform="rotate(-14 70 35)"/>
-            <path d="M86 52 q3 4 0 9 l-34 50 q-4 6 -10 2 q-6 -4 -2 -10 l34 -50 q3 -4 8 -3" />
-            <g stroke="#e6be00" stroke-width="2.2"><path d="M150 40 l6 -14 l5 14 l14 -3 l-10 11 l9 12 l-15 -6 l-7 13 l-2 -15 l-15 1 l13 -8 z" fill="#ffd400"/></g>
-          </svg>
-        </div>
-        <p class="lede">Your English draft starts here. Don't translate the Korean line by line — retell the same facts and the same angle in English that actually sounds like English.</p>
-        <div class="draft-tools">
-          <div class="label">영어판 작업 영역 · 발행본엔 숨김
-            <span class="toggle">
-              <button class="on" onclick="setDraft(this,'mine')">내 초안</button>
-              <button onclick="setDraft(this,'fixed')">첨삭본</button>
-            </span>
-          </div>
-          <div class="pane">여기에 네가 쓴 영어 초안이 들어가고, 토글로 내 첨삭본과 비교한다.</div>
-        </div>
+        <h2><a href="#story-01">Module Hacks and AI Payments</a></h2>
+
+        <p class="lede">On Ethereum and Base, a third-party Safe module named "SquidRouterModule" appears to have been exploited, draining about $3.2 million. Squid drew a clear line around the incident, saying it did not create or deploy the module, and that the module merely shared the SquidRouterModule name while being different from the core Squid Router contract. Fair enough. The important point is less about Safe itself and more about the fact that an external module approved by a wallet can effectively act like an agent for the vault. That is where this kind of exploit can appear.</p>
+
+        <p class="lede">The key question in this Safe-related incident is not simply, "Was the wallet itself hacked?" It is, "How much authority did the external module attached to the wallet actually have?" Safe is widely used as a multisig wallet, where multiple people must sign before assets can move. DAOs and project treasuries often rely on it. But if you attach an external module to Safe, certain tasks can be automated. For example, it might send a fixed amount of operating expenses to someone every month. Getting three multisig signers to approve that every single time can be slow and inefficient. So a team can attach a module to Safe and say, in effect, "This module is an approved program. If it makes a request within the rules we set, let it move Safe funds without getting three signatures every time, alright?"</p>
+
+        <p class="lede">It feels like a world where AI handles payments is coming pretty soon, does it not? Coinbase introduced x402 in May last year. It is a payment protocol that lets AI agents or apps pay for APIs, services, and content with stablecoins inside the normal flow of HTTP requests. Since then, it has led to the x402 Foundation with Cloudflare, a move under the Linux Foundation, and the AWS Bedrock AgentCore Payments preview. At this point, it is becoming one of the early standard candidates for an internet where AI agents spend money. You can also imagine a world where the hacked module from the first story is replaced by an AI agent. How much authority should we give it? How should we prepare for all the strange situations that follow? We will have to keep watching. Exciting times, I suppose.</p>
+
+        <p class="plus">Safe module exploit report — <a href="https://www.theblock.co/post/402487/we-dont-know-who-deployed-this-squid-distances-itself-from-3-2-million-third-party-module-exploit" target="_blank" rel="noopener">theblock.co</a></p>
+        <p class="plus">Cointelegraph's Safe and Squid summary — <a href="https://cointelegraph.com/news/squid-safe-labs-third-party-module-3-2-million-exploit" target="_blank" rel="noopener">cointelegraph.com</a></p>
+        <p class="plus">Safe official docs - what modules are — <a href="https://docs.safe.global/advanced/smart-account-modules" target="_blank" rel="noopener">docs.safe.global</a></p>
+        <p class="plus">Coinbase's first x402 introduction — <a href="https://www.coinbase.com/en-it/developer-platform/discover/launches/x402" target="_blank" rel="noopener">coinbase.com</a></p>
+        <p class="plus">Cloudflare and Coinbase announce the x402 Foundation — <a href="https://blog.cloudflare.com/x402" target="_blank" rel="noopener">blog.cloudflare.com</a></p>
+        <p class="plus">AWS Bedrock AgentCore Payments preview — <a href="https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-agentcore-payments-preview/" target="_blank" rel="noopener">aws.amazon.com</a></p>
+        <p class="plus">Coinbase announcement that x402 added Polygon support — <a href="https://www.coinbase.com/developer-platform/discover/launches/x402facilitator-polygon" target="_blank" rel="noopener">coinbase.com</a></p>
       </div>
     </article>
 
-    <!-- 02 자리표시 (디파이 해부) -->
-    <article class="story">
+    <article class="story" id="story-02">
       <div data-lang="ko">
         <span class="story-num">02</span>
-        <h2><a href="#">디파이 메커니즘 해부 — 다음 꼭지 자리</a></h2>
-        <div class="doodle">
-          <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0d0d0d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <!-- 손그림 다이어그램: 노드 - 화살표 - 노드 -->
-            <circle cx="34" cy="55" r="20"/>
-            <circle cx="166" cy="55" r="20"/>
-            <path d="M58 55 q40 -14 84 0" />
-            <path d="M134 47 l10 8 l-11 7" />
-            <path d="M142 55 q-40 22 -84 6" stroke="#e6be00"/>
-            <path d="M66 67 l-10 -8 l11 -7" stroke="#e6be00"/>
-            <circle cx="34" cy="55" r="5" fill="#ffd400" stroke="none"/>
-          </svg>
-        </div>
-        <p class="lede">여기에 복잡한 프로토콜이나 알고리즘을 손으로 그린 다이어그램과 함께 한 단계씩 풀어본다. 위 그림처럼, 손그림 화살표가 곧 시그니처가 된다.</p>
+        <h2><a href="#story-02">모듈 실패가 아닌 것도 있어염</a></h2>
+
+        <p class="lede">그러면 지갑 자체는 완전히 안전할까? 또 그것도 아닌 것으로 보입니다. The Block 보도에 따르면 유럽 스테이블코인 발행사 StablR의 EURR과 USDR이 디페그되었습니다. 디페그 되었다는 게 말이 어려워 보이는데 유로 스테이블 코인이 1유로의 가격을 유지하지 못하게 되었고, 달러 스테이블 코인이 1달러의 가격을 유지하지 못하게 되었다는 뜻입니다. 한마디로 닉값 못했다고 보면 됩니다.</p>
+
+        <p class="lede">StablR의 발행 권한을 3명이 나누어가지고 있었던 것으로 보입니다. 법인카드라고 해볼까요. 법인카드가 하나만 있지 않잖아요. 회사를 위해서 돈을 써야 하는 직책에 있는 사람들은 법인카드를 가지고 있죠. 회사 외부의 어떤 사람이 법인카드를 탈취해서 마구마구 써버린 거랑 비슷한 거 같습니다. 1-of-3 멀티시그 구조라고 하는데요. 3명이 서명할 권한을 갖고, 1명이라도 서명하면 결제가 진행되는 지갑이 있었던 겁니다. 이 지갑에서 스테이블 코인을 발행할 수도 있는 거고요. 공격자는 이 중 한 명의 개인키를 손에 넣었고, 자신을 관리자로 추가하고 기존 소유자들을 교체했다고 합니다. 그리고 새로운 스테이블 코인을 발행한 뒤에 탈중앙화 거래소에 가서 이더리움으로 바꿔버렸습니다. 스테이블 코인을 사줄 돈보다 시장에 쏟아져나오는 스테이블 코인의 양이 많으니까 스테이블 코인의 가격이 떨어져버린 겁니다. 은행 금고를 턴 게 아니라 조폐 권한을 훔쳐서 새 돈을 찍어내고 시장에 던져버린 것이라고도 이해해볼 수 있겠습니다.</p>
+
+        <p class="lede">보안업체 Blockaid는 이번 사고를 스마트컨트랙트 버그가 아니라 키 관리와 거버넌스 실패로 봤습니다. 사고가 일어난 StablR을 만만하게 본다면 만만의 콩떡입니다. Tether와 Kraken이라는 업계에서 잘 알려진 회사들에게 전략적 투자를 받은 것으로 알려졌고, 유럽 규제환경과 MiCA 규제, 그리고 준비금과 투명성과 같은 단어와 함께 소개되어온 발행사입니다. 이걸 어떻게 해석할 수 있을까요. "암호화폐 업계 완전 허접하고만?"이라고 생각해야 할까요? 아니면 "이게 먼 탈중앙이냐ㅎ;"라고 생각해야 할까요.</p>
+
+        <p class="lede">여간 숙제가 많이 남아있는 거 같습니다. 저는 한국의 크립토 그루 오태민 작가님을 좋아합니다. 이 분이 최근에 책을 쓰셨는데요. 신간 &lt;&lt;이더리움 없는 미래는 없다&gt;&gt;의 서문에서 이런 말을 하시더라고요.</p>
+
+        <blockquote>
+          이더리움은 완벽했기 떄문에 살아남은 것이 아니다. 오히려 실패를 견딜 수 있는 구조였기 때문에 살아남았다. 그 결과 이더리움은 단순한 블록체인 플랫폼을 넘어 새로운 금융 실험이 이루어지는 신대륙이 되었다.
+          <cite>&lt;&lt;이더리움 없는 미래는 없다&gt;&gt;, 9p</cite>
+        </blockquote>
+
+        <p class="lede">그러니까요. 이런 일들이 다 거름이 된다는 거 아니겠어요? 하여간 바람 잘 날 없는 디파이 생태계 저도 앞으로 잘 쫓아보렵니다! 뭐가 되고 있기는 한 거 같아 분명히!</p>
+
+        <p class="plus">The Block의 StablR EURR·USDR 디페그 보도 — <a href="https://www.theblock.co/amp/post/402429/stablrs-eurr-and-usdr-depeg-after-attacker-mints-13-5-million-in-unbacked-tokens-through-multisig-exploit" target="_blank" rel="noopener">theblock.co</a></p>
+        <p class="plus">CoinDesk의 StablR 토큰 동결 후속 보도 — <a href="https://www.coindesk.com/markets/2026/05/26/stablr-freezes-usdr-and-eurr-after-attacker-mints-usd13-5-million-in-unbacked-tokens" target="_blank" rel="noopener">coindesk.com</a></p>
+        <p class="plus">StablR 공식 준비금 증명 페이지 — <a href="https://www.stablr.com/proof-of-reserve" target="_blank" rel="noopener">stablr.com</a></p>
+        <p class="plus">StablR 공식 홈페이지 - EURR·USDR 소개 — <a href="https://www.stablr.com/" target="_blank" rel="noopener">stablr.com</a></p>
+        <p class="plus">StablR USDR 공식 문서 — <a href="https://docs.stablr.com/docs/what-is-eurr-copy" target="_blank" rel="noopener">docs.stablr.com</a></p>
       </div>
+
       <div data-lang="en">
         <span class="story-num">02</span>
-        <h2><a href="#">[ DeFi teardown — placeholder ]</a></h2>
-        <p class="lede">Placeholder for the second piece.</p>
+        <h2><a href="#story-02">Some Things Are Not Module Failures</a></h2>
+
+        <p class="lede">So does that mean the wallet itself is completely safe? Not quite. According to The Block, EURR and USDR from European stablecoin issuer StablR depegged. "Depegged" can sound like a difficult word, but it simply means the euro stablecoin could no longer maintain a price of 1 euro, and the dollar stablecoin could no longer maintain a price of 1 dollar. In short, they failed to live up to their own names.</p>
+
+        <p class="lede">It appears that StablR's minting authority was shared by three people. Think of it like a company credit card. A company does not usually have just one corporate card. People in roles that require company spending have company cards. This seems a bit like someone outside the company stealing one of those cards and using it wildly. The setup was reportedly a 1-of-3 multisig. Three people had signing authority, and a transaction could go through if just one of them signed. That wallet also had the ability to issue stablecoins. The attacker obtained one of those private keys, added themselves as an administrator, and replaced the existing owners. Then they minted new stablecoins and swapped them for Ethereum on decentralized exchanges. Because the market suddenly had more stablecoins being dumped than there was demand to buy them, the price of the stablecoins fell. You could also understand it as not robbing the bank vault, but stealing the minting authority, printing new money, and throwing it into the market.</p>
+
+        <p class="lede">Security firm Blockaid viewed the incident not as a smart contract bug, but as a failure of key management and governance. If you are tempted to dismiss StablR as some lightweight operation, that would be too easy. It has reportedly received strategic investments from well-known industry names such as Tether and Kraken. It has also been introduced with words like European regulation, MiCA, reserves, and transparency. So how should we interpret this? Should we think, "Wow, the crypto industry is a total mess?" Or should we think, "So much for decentralization, huh?"</p>
+
+        <p class="lede">There is clearly a lot of homework left. I like the Korean crypto thinker and writer Oh Tae-min. He recently published a new book, and in the preface to <em>There Is No Future Without Ethereum</em>, he writes:</p>
+
+        <blockquote>
+          Ethereum did not survive because it was perfect. It survived because it had a structure that could withstand failure. As a result, Ethereum became more than a simple blockchain platform. It became a new continent where new financial experiments take place.
+          <cite><em>There Is No Future Without Ethereum</em>, p. 9</cite>
+        </blockquote>
+
+        <p class="lede">Exactly. Maybe all of these incidents become fertilizer in the end. Anyway, this ever-restless DeFi ecosystem is something I plan to keep following closely. Something is definitely being built here. Probably.</p>
+
+        <p class="plus">The Block's report on StablR EURR and USDR depegging — <a href="https://www.theblock.co/amp/post/402429/stablrs-eurr-and-usdr-depeg-after-attacker-mints-13-5-million-in-unbacked-tokens-through-multisig-exploit" target="_blank" rel="noopener">theblock.co</a></p>
+        <p class="plus">CoinDesk follow-up on StablR freezing tokens — <a href="https://www.coindesk.com/markets/2026/05/26/stablr-freezes-usdr-and-eurr-after-attacker-mints-usd13-5-million-in-unbacked-tokens" target="_blank" rel="noopener">coindesk.com</a></p>
+        <p class="plus">StablR official proof-of-reserve page — <a href="https://www.stablr.com/proof-of-reserve" target="_blank" rel="noopener">stablr.com</a></p>
+        <p class="plus">StablR official homepage - EURR and USDR introduction — <a href="https://www.stablr.com/" target="_blank" rel="noopener">stablr.com</a></p>
+        <p class="plus">StablR USDR official docs — <a href="https://docs.stablr.com/docs/what-is-eurr-copy" target="_blank" rel="noopener">docs.stablr.com</a></p>
       </div>
     </article>
 
@@ -378,20 +613,20 @@
 
   <footer>
     <div data-lang="ko">
-      <a class="sub-cta" href="#">구독하기 →</a>
+      <a class="sub-cta" href="archive.html">지난 호 보러가기 →</a>
       <div class="colophon">
         오늘의 크립토 · 1인 미디어<br>
-        편집 · 발행 — <a href="#">필명</a><br>
-        매일 아침 · 한국어 &amp; ENGLISH<br>
+        편집 · 발행 — <a href="https://youtube.com/channel/UCl_viaioC7Qu0BmDXHG_jvg?si=OCJSv9DqIymoRR9u" target="_blank" rel="noopener">꿈돌이 안재성</a><br>
+        한국어 &amp; ENGLISH<br>
         © 2026
       </div>
     </div>
     <div data-lang="en">
-      <a class="sub-cta" href="#">SUBSCRIBE →</a>
+      <a class="sub-cta" href="archive.html">READ PAST ISSUES →</a>
       <div class="colophon">
         TODAY IN CRYPTO · A ONE-PERSON PUBLICATION<br>
-        EDITED &amp; PUBLISHED BY — <a href="#">PEN NAME</a><br>
-        EVERY MORNING · 한국어 &amp; ENGLISH<br>
+        EDITED &amp; PUBLISHED BY — <a href="https://youtube.com/channel/UCl_viaioC7Qu0BmDXHG_jvg?si=OCJSv9DqIymoRR9u" target="_blank" rel="noopener">꿈돌이 안재성</a><br>
+        한국어 &amp; ENGLISH<br>
         © 2026
       </div>
     </div>
@@ -406,14 +641,6 @@
     document.documentElement.lang=l;
     document.getElementById('btn-ko').classList.toggle('active',l==='ko');
     document.getElementById('btn-en').classList.toggle('active',l==='en');
-  }
-  function setDraft(btn,which){
-    const t=btn.closest('.draft-tools');
-    t.querySelectorAll('.toggle button').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    const p=t.querySelector('.pane');
-    if(which==='mine'){p.textContent=p.dataset.mine||'여기에 네가 쓴 영어 초안이 들어가고, 토글로 내 첨삭본과 비교한다.';}
-    else{p.dataset.mine=p.dataset.mine||p.textContent;p.textContent='여기에 첨삭본 — 무엇을 왜 고쳤는지 설명과 함께.';}
   }
 </script>
 </body>
