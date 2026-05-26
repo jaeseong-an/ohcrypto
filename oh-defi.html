@@ -65,7 +65,27 @@
   </section>
 </main>
 <script>
-  function setLang(l){document.body.className=l;document.documentElement.lang=l;document.getElementById('btn-ko').classList.toggle('active',l==='ko');document.getElementById('btn-en').classList.toggle('active',l==='en')}
+  function getStoredLang(){try{return localStorage.getItem('todayCryptoLang')}catch(e){return null}}
+  function storeLang(l){try{localStorage.setItem('todayCryptoLang', l)}catch(e){}}
+  function updateLangLinks(l){
+    document.querySelectorAll('a[href]').forEach(a=>{
+      const raw=a.getAttribute('href');
+      if(!raw || raw.startsWith('http') || raw.startsWith('mailto:') || raw.startsWith('#')) return;
+      const url=new URL(raw, window.location.href);
+      url.searchParams.set('lang', l);
+      a.setAttribute('href', url.pathname.split('/').pop()+url.search+url.hash);
+    });
+  }
+  function setLang(l){
+    storeLang(l);
+    document.body.className=l;
+    document.documentElement.lang=l;
+    document.getElementById('btn-ko').classList.toggle('active',l==='ko');
+    document.getElementById('btn-en').classList.toggle('active',l==='en');
+    updateLangLinks(l);
+  }
+  const initialLang=new URLSearchParams(window.location.search).get('lang') || getStoredLang() || 'ko';
+  setLang(initialLang === 'en' ? 'en' : 'ko');
 </script>
 </body>
 </html>

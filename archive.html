@@ -56,7 +56,7 @@
     <p data-lang="en">A shelf for past issues.</p>
   </section>
   <section class="grid">
-    <a class="card" href="today-crypto-v2.html#issue-001">
+    <a class="card" href="today-crypto-v2.html">
       <div class="card-head"><span data-lang="ko">제 1 호</span><span data-lang="en">Issue No.1</span><span data-lang="ko">2026.05.26</span><span data-lang="en">May 26, 2026</span></div>
       <div class="stage"><img src="today_in_crypto/260526/today%20in%20crypto_260526.png" alt="Hand-drawn DeFi ecosystem with a worried vault connected to protocol boxes, coins, and stormy flows"></div>
       <p class="note" data-lang="ko"><strong>바람잘 날 없는 디파이 생태계의 소식들에 집중해봤습니다.</strong> 어려운 거 같기도 하고, 또 되게 허술한 거 같기도 하고, 미래인 건 분명한 거 같은데 또 막 탈중앙은 무슨 탈중앙이야 싶기도 하고 그러네요잉?</p>
@@ -65,7 +65,27 @@
   </section>
 </main>
 <script>
-  function setLang(l){document.body.className=l;document.documentElement.lang=l;document.getElementById('btn-ko').classList.toggle('active',l==='ko');document.getElementById('btn-en').classList.toggle('active',l==='en')}
+  function getStoredLang(){try{return localStorage.getItem('todayCryptoLang')}catch(e){return null}}
+  function storeLang(l){try{localStorage.setItem('todayCryptoLang', l)}catch(e){}}
+  function updateLangLinks(l){
+    document.querySelectorAll('a[href]').forEach(a=>{
+      const raw=a.getAttribute('href');
+      if(!raw || raw.startsWith('http') || raw.startsWith('mailto:') || raw.startsWith('#')) return;
+      const url=new URL(raw, window.location.href);
+      url.searchParams.set('lang', l);
+      a.setAttribute('href', url.pathname.split('/').pop()+url.search+url.hash);
+    });
+  }
+  function setLang(l){
+    storeLang(l);
+    document.body.className=l;
+    document.documentElement.lang=l;
+    document.getElementById('btn-ko').classList.toggle('active',l==='ko');
+    document.getElementById('btn-en').classList.toggle('active',l==='en');
+    updateLangLinks(l);
+  }
+  const initialLang=new URLSearchParams(window.location.search).get('lang') || getStoredLang() || 'ko';
+  setLang(initialLang === 'en' ? 'en' : 'ko');
 </script>
 </body>
 </html>

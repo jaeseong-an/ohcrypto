@@ -4,22 +4,124 @@
 
 목표는 단순하다.
 
-- 작성자는 하루치 원고를 Markdown 파일 하나로 쓴다.
+- 작성자는 하루치 원고를 언어별 Markdown 파일로 쓴다.
 - AI 편집자는 이 규칙을 읽고 현재 HTML 디자인에 맞게 발행본을 만든다.
 - 별도 CMS나 편집 프로그램 없이 초기 발행을 운영한다.
 
 ## 기본 원칙
 
-하루치 발행호는 Markdown 파일 하나로 작성한다.
+하루치 발행호는 언어별 Markdown 파일로 작성한다.
 
-파일 맨 위에는 front matter로 `date`와 `lang`만 적는다.
+파일 맨 위에는 front matter로 `date`, `lang`, `issue_title`, `issue_description`을 적는다.
 
 ```md
 ---
 date: 2026-05-26
 lang: ko
+issue_title: 바람잘 날 없는 디파이
+issue_description: Safe 모듈 익스플로잇, AI 결제, StablR 디페그까지. 디파이가 아직 실험장이라는 사실을 보여준 하루.
 ---
 ```
+
+`issue_title`은 발행호 전체 제목이다.
+
+`issue_description`은 발행호 전체를 설명하는 짧은 문장이다.
+
+이 둘은 본문 꼭지 제목이 아니라, 아카이브 카드와 발행호 메타 정보에 사용한다.
+
+영어 원고도 같은 구조를 쓴다.
+
+```md
+---
+date: 2026-05-26
+lang: en
+issue_title: No Quiet Days in DeFi
+issue_description: Safe module exploits, AI payments, and the StablR depeg: a day that showed DeFi is still very much an experiment.
+---
+```
+
+## 파일 구조
+
+오늘의 크립토 발행 원고와 대표 이미지는 아래 구조로 둔다.
+
+```txt
+today_in_crypto/
+  YYMMDD/
+    today in crypto_ISSUE_YYMMDD(ko).md
+    today in crypto_ISSUE_YYMMDD(en).md
+    today in crypto_YYMMDD.png
+```
+
+예:
+
+```txt
+today_in_crypto/
+  260526/
+    today in crypto_1_260526(ko).md
+    today in crypto_1_260526(en).md
+    today in crypto_260526.png
+```
+
+폴더명은 `today_in_crypto`를 표준으로 쓴다.
+
+같은 날짜 폴더 안의 대표 이미지는 다음 두 곳에 사용한다.
+
+- 오늘의 크립토 본문 상단 대표 이미지
+- 아카이브 카드 중앙 이미지
+
+## 콘텐츠 라인 구조
+
+이 사이트에는 여러 콘텐츠 라인이 있을 수 있다.
+
+`오늘의 크립토`, `오!디파이`, `오!탈중앙`은 서로 연결될 수 있지만, 같은 원고를 자동으로 공유하거나 분류해 모으는 관계가 아니다.
+
+각 라인은 별도 원고 폴더와 별도 발행 흐름을 가진다.
+
+### 오늘의 크립토
+
+`today_in_crypto/`는 매일 크립토 뉴스 큐레이션 발행용이다.
+
+```txt
+today_in_crypto/
+  YYMMDD/
+    today in crypto_ISSUE_YYMMDD(ko).md
+    today in crypto_ISSUE_YYMMDD(en).md
+    today in crypto_YYMMDD.png
+```
+
+### 오!디파이
+
+`oh_defi/`는 디파이 구조, 프로토콜, 금융 메커니즘 해설용이다.
+
+```txt
+oh_defi/
+  YYMMDD/
+    oh defi_ISSUE_YYMMDD(ko).md
+    oh defi_ISSUE_YYMMDD(en).md
+    oh defi_YYMMDD.png
+```
+
+### 오!탈중앙
+
+`oh_decentralization/`은 탈중앙 이념, 거버넌스, 1차 문헌, 관련 아젠다 분석용이다.
+
+```txt
+oh_decentralization/
+  YYMMDD/
+    oh decentralization_ISSUE_YYMMDD(ko).md
+    oh decentralization_ISSUE_YYMMDD(en).md
+    oh decentralization_YYMMDD.png
+```
+
+### 라인 간 연결
+
+각 라인은 필요할 때 서로 링크할 수 있다.
+
+예를 들어 `오늘의 크립토`의 특정 꼭지가 더 깊은 디파이 해설을 필요로 하면 `오!디파이` 글로 링크할 수 있고, 탈중앙 이념이나 거버넌스 논의가 필요하면 `오!탈중앙` 글로 링크할 수 있다.
+
+하지만 `오늘의 크립토`의 꼭지가 자동으로 `오!디파이`나 `오!탈중앙` 목록에 들어가지는 않는다.
+
+각 라인의 목록 페이지는 해당 라인의 원고만 보여준다.
 
 ## 제목 규칙
 
@@ -57,9 +159,11 @@ HTML에서는 `##`보다 낮은 단계의 본문 제목으로 표시한다.
 
 ## 목차 규칙
 
-발행본 상단에는 접고 펼칠 수 있는 목차 토글을 둘 수 있다.
+발행본 상단에는 접고 펼칠 수 있는 목차 토글을 둔다.
 
 목차는 Markdown 안의 모든 `#` 제목을 자동으로 모아 만든다.
+
+목차는 기본적으로 열린 상태로 둔다.
 
 예:
 
@@ -72,6 +176,8 @@ HTML에서는 `##`보다 낮은 단계의 본문 제목으로 표시한다.
 ```
 
 목차 항목을 누르면 해당 꼭지로 이동하게 만든다.
+
+한국어 페이지에서는 한국어 `#` 제목을, 영어 페이지에서는 영어 `#` 제목을 목차에 사용한다.
 
 ## 본문 규칙
 
@@ -105,6 +211,14 @@ AI는 이를 HTML의 `blockquote`로 변환한다.
 
 AI는 이를 현재 디자인의 `+` 링크 스타일로 변환한다.
 
+변환 예:
+
+```html
+<p class="plus">트럼프의 압박 강도 — <a href="https://finance.yahoo.com/example" target="_blank" rel="noopener">finance.yahoo.com</a></p>
+```
+
+링크 텍스트에는 URL 전체보다 도메인 또는 짧은 출처명을 사용한다.
+
 ## 코드 규칙
 
 코드는 Markdown fenced code block을 사용한다.
@@ -131,6 +245,8 @@ console.log(protocol);</code></pre>
 ---
 date: 2026-05-26
 lang: ko
+issue_title: 바람잘 날 없는 디파이
+issue_description: Safe 모듈 익스플로잇, AI 결제, StablR 디페그까지. 디파이가 아직 실험장이라는 사실을 보여준 하루.
 ---
 ```
 
@@ -148,6 +264,8 @@ lang: ko
 ---
 date: 2026-05-26
 lang: ko
+issue_title: 바람잘 날 없는 디파이
+issue_description: Safe 모듈 익스플로잇, AI 결제, StablR 디페그까지. 디파이가 아직 실험장이라는 사실을 보여준 하루.
 ---
 
 # 인하시키려 보낸 망치가, 인상을 압박받는다
@@ -189,9 +307,35 @@ AI 편집자는 원고를 HTML에 반영할 때 다음을 지킨다.
 - `>` 인용은 `blockquote`로 변환한다.
 - `+ 설명: URL`은 현재 사이트의 관련 링크 스타일로 변환한다.
 - fenced code block은 `.code-box` 스타일을 사용하는 코드 박스로 변환한다.
-- 발행본 상단에 `#` 제목 기반의 접이식 목차를 만든다.
+- 발행본 상단에 `#` 제목 기반의 접이식 목차를 만들고, 기본으로 열린 상태를 유지한다.
+- 꼭지 제목은 `<h2><a href="#story-xx">제목</a></h2>` 형태로 만든다. 그래야 제목 hover 시 노란 밑줄 효과가 유지된다.
 - 기존 사이트의 언어 토글, 상단 메뉴, 푸터 구조는 유지한다.
 - 원고에 없는 내용을 임의로 추가하지 않는다.
 - 링크가 있으면 가능한 한 새 탭에서 열리도록 `target="_blank"`와 `rel="noopener"`를 붙인다.
+- 내부 페이지 링크는 현재 언어 상태를 유지해야 한다. `?lang=ko` 또는 `?lang=en`을 붙일 수 있다.
+- 언어 상태는 URL의 `lang` 파라미터를 우선하고, 가능하면 `localStorage`에도 저장한다.
+- EN 상태에서 메뉴 이동 시 다른 페이지도 EN으로 열려야 한다.
 
+## 아카이브 카드 규칙
+
+`archive.html`의 각 발행호 카드는 원고 front matter와 대표 이미지를 사용해 만든다.
+
+카드 구조:
+
+- 상단 왼쪽: 발행번호
+- 상단 오른쪽: 날짜
+- 중앙: 대표 이미지
+- 하단 제목: `issue_title`
+- 하단 설명: `issue_description`
+
+아카이브 카드 클릭 시 해당 호 HTML의 최상단으로 이동한다.
+
+현재처럼 발행호가 파일 하나에 독립되어 있을 때는 `#issue-001` 같은 해시를 붙이지 않는다.
+
+예:
+
+```html
+<a class="card" href="today-crypto-v2.html">
 ```
+
+언어 상태 유지를 위해 실제 렌더링 시에는 JS가 `?lang=ko` 또는 `?lang=en`을 붙일 수 있다.
