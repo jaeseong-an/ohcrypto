@@ -2,7 +2,7 @@
 date: 2026-05-26
 lang: en
 issue_title: No Quiet Days in DeFi
-issue_description: Safe module exploits, AI payments, and the StablR depeg: a day that showed DeFi is still very much an experiment.
+issue_description: A hacked external module on a Safe wallet, the StablR depeg, and another reminder that DeFi is still an experimental field.
 ---
 
 Today we are focusing on a few stories from the DeFi ecosystem, where there never seems to be a quiet day. Sometimes it feels difficult, sometimes oddly flimsy, and it still seems like the future. Then again, sometimes you look at it and think, "Decentralized? Really?"
