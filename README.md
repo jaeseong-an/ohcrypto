@@ -117,11 +117,15 @@
 - **본진:** `ohcrypto.kr`에 정적 HTML로 발행.
 - **호스팅:** GitHub Pages를 사용한다.
 - **진입 파일:** 사이트 루트는 `index.html`이다.
+- **최신호:** `index.html`은 항상 오늘의 크립토 최신호를 보여준다.
+- **지난 호 목록:** `oh-archive.html`은 오늘의 크립토 지난 호 목록 페이지다.
+- **지난 호 보존:** 각 발행호 HTML은 `oh-archive/` 폴더에 `ISSUE_YYMMDD.html` 형식으로 저장한다.
+  - 예: `oh-archive/001_260526.html`
 - **커스텀 도메인:** 저장소 루트의 `CNAME` 파일에 `ohcrypto.kr`를 적어 GitHub Pages에 연결한다.
+- **배포 방식:** HTML과 원고 파일을 수정한 뒤 `main` 브랜치에 push하면 GitHub Pages가 자동으로 갱신한다.
 - **유입 채널:** 카카오톡 / 텔레그램 / 디스코드 / 트위터(X). 사이트가 본진, 채널은 "새 호 + 링크" 통로.
 - **이메일 뉴스레터는 보류** — 초기엔 채널 유입이 더 현실적.
 - 버전 관리: **Git + GitHub** (별도 git 노트 참고).
-- 배포 다음 단계: GitHub → Cloudflare Pages / Vercel 연결 (push 시 자동 갱신).
 
 ---
 

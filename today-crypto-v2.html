@@ -497,7 +497,7 @@
         <span data-lang="ko">탈중앙 이념의 허와 실</span>
         <span data-lang="en">The promise and cracks of decentralization</span>
       </a>
-      <a class="nav-card" href="archive.html">
+      <a class="nav-card" href="oh-archive.html">
         <div class="nav-art" aria-hidden="true">
           <svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 30h64v50H18z" fill="#fff"/>
@@ -682,7 +682,7 @@
 
   <footer>
     <div data-lang="ko">
-      <a class="sub-cta" href="archive.html">지난 호 보러가기 →</a>
+      <a class="sub-cta" href="oh-archive.html">지난 호 보러가기 →</a>
       <div class="colophon">
         오늘의 크립토 · 1인 미디어<br>
         편집 · 발행 — <a href="https://youtube.com/channel/UCl_viaioC7Qu0BmDXHG_jvg?si=OCJSv9DqIymoRR9u" target="_blank" rel="noopener">꿈돌이 안재성</a><br>
@@ -691,7 +691,7 @@
       </div>
     </div>
     <div data-lang="en">
-      <a class="sub-cta" href="archive.html">READ PAST ISSUES →</a>
+      <a class="sub-cta" href="oh-archive.html">READ PAST ISSUES →</a>
       <div class="colophon">
         TODAY IN CRYPTO · A ONE-PERSON PUBLICATION<br>
         EDITED &amp; PUBLISHED BY — <a href="https://youtube.com/channel/UCl_viaioC7Qu0BmDXHG_jvg?si=OCJSv9DqIymoRR9u" target="_blank" rel="noopener">꿈돌이 안재성</a><br>
@@ -716,7 +716,7 @@
       if(!raw || raw.startsWith('http') || raw.startsWith('mailto:') || raw.startsWith('#')) return;
       const url=new URL(raw, window.location.href);
       url.searchParams.set('lang', l);
-      a.setAttribute('href', url.pathname.split('/').pop()+url.search+url.hash);
+      a.setAttribute('href', url.pathname+url.search+url.hash);
     });
   }
   function setLang(l){

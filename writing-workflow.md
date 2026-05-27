@@ -42,6 +42,26 @@ issue_description: Safe module exploits, AI payments, and the StablR depeg: a da
 
 ## 파일 구조
 
+루트에는 방문자가 직접 들어가는 주요 페이지를 둔다.
+
+```txt
+index.html
+oh-archive.html
+oh-defi.html
+oh-decentralization.html
+```
+
+`index.html`은 오늘의 크립토 최신호다.
+
+`oh-archive.html`은 오늘의 크립토 지난 호 목록이다.
+
+실제 지난 호 HTML은 `oh-archive/` 폴더에 보존한다.
+
+```txt
+oh-archive/
+  001_260526.html
+```
+
 오늘의 크립토 발행 원고와 대표 이미지는 아래 구조로 둔다.
 
 ```txt
@@ -377,7 +397,23 @@ AI 편집자는 원고를 HTML에 반영할 때 다음을 지킨다.
 
 ## 아카이브 카드 규칙
 
-`archive.html`의 각 발행호 카드는 원고 front matter와 대표 이미지를 사용해 만든다.
+`index.html`은 항상 오늘의 크립토 최신호다.
+
+오늘의 크립토 각 발행호는 `oh-archive/` 폴더에도 보존한다.
+
+보존본 파일명은 `ISSUE_YYMMDD.html` 형식을 쓴다.
+
+예:
+
+```txt
+oh-archive/
+  001_260526.html
+  002_260528.html
+```
+
+`oh-archive.html`은 오늘의 크립토 지난 호 목록 페이지다.
+
+`oh-archive.html`의 각 발행호 카드는 원고 front matter와 대표 이미지를 사용해 만든다.
 
 카드 구조:
 
@@ -389,12 +425,16 @@ AI 편집자는 원고를 HTML에 반영할 때 다음을 지킨다.
 
 아카이브 카드 클릭 시 해당 호 HTML의 최상단으로 이동한다.
 
-현재처럼 발행호가 파일 하나에 독립되어 있을 때는 `#issue-001` 같은 해시를 붙이지 않는다.
+아카이브 카드 링크는 반드시 `oh-archive/ISSUE_YYMMDD.html` 형식의 보존본을 가리킨다.
+
+`index.html`은 최신호 진입점이므로 아카이브 영구 링크로 사용하지 않는다.
+
+보존본은 파일 하나에 독립되어 있으므로 `#issue-001` 같은 해시를 붙이지 않는다.
 
 예:
 
 ```html
-<a class="card" href="index.html">
+<a class="card" href="oh-archive/001_260526.html">
 ```
 
 언어 상태 유지를 위해 실제 렌더링 시에는 JS가 `?lang=ko` 또는 `?lang=en`을 붙일 수 있다.
