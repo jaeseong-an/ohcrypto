@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{--ink:#0d0d0d;--ink-soft:#3a3a3a;--paper:#fff;--paper-dim:#f4f4f4;--yellow:#ffd400;--mono:"Space Mono",ui-monospace,monospace;--sans:"Gothic A1","Helvetica Neue",sans-serif}
+  @media (prefers-color-scheme:dark){:root{--ink:#ece7dc;--ink-soft:#b8b0a3;--paper:#202225;--paper-dim:#2b2e32}.nav-card:hover .nav-art{background:#ffffff}}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7}
   .site-nav{border-bottom:2px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:10}
@@ -17,9 +18,9 @@
   .nav-inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:2px solid var(--ink);position:absolute;left:50%;top:32px;width:min(980px,100%);transform:translate(-50%,-12px);opacity:0;visibility:hidden;pointer-events:none;background:var(--paper);box-shadow:0 8px 0 rgba(13,13,13,.12);transition:opacity .15s,transform .15s,visibility .15s}
   .site-nav:hover .nav-inner,.site-nav:focus-within .nav-inner{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
   .nav-card{min-height:188px;padding:12px 14px 10px;border-right:2px solid var(--ink);color:var(--ink);text-decoration:none;display:flex;flex-direction:column;background:var(--paper)}
-  .nav-card:hover{background:var(--yellow)}
+  .nav-card:hover{background:var(--yellow);color:#0d0d0d}.nav-card:hover span{color:#0d0d0d}
   .nav-art{min-height:108px;margin:-12px -14px 12px;border-bottom:2px solid var(--ink);display:grid;place-items:center;background:linear-gradient(90deg,rgba(13,13,13,.06) 1px,transparent 1px),linear-gradient(rgba(13,13,13,.06) 1px,transparent 1px),var(--paper-dim);background-size:14px 14px}
-  .nav-art svg{width:70px;height:70px}
+  .nav-art svg{width:70px;height:70px;stroke:var(--ink)}.nav-card:hover .nav-art svg{stroke:#0d0d0d}.nav-trigger::after{color:#0d0d0d}
   .nav-card strong{font-size:clamp(17px,2.4vw,23px);line-height:1.05;margin-bottom:8px}
   .nav-card span{font-family:var(--mono);font-size:10px;line-height:1.35;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
   .page{max-width:1080px;margin:0 auto;padding:42px 22px 70px}
@@ -30,6 +31,7 @@
   .card{border:2.5px solid var(--ink);background:var(--paper);min-height:250px;display:grid;grid-template-rows:auto 1fr auto;color:var(--ink);text-decoration:none}
   .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:2px solid var(--ink);padding:9px 12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
   .stage{min-height:230px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .stage picture{display:block;width:100%;height:100%}
   .stage img{display:block;width:100%;height:100%;object-fit:cover}
   .note{border-top:2px solid var(--ink);padding:12px 14px 14px;font-size:13px;line-height:1.55;color:var(--ink-soft);word-break:keep-all}
   .note strong{color:var(--ink)}
@@ -43,7 +45,7 @@
 <nav class="site-nav" aria-label="Primary">
   <div class="nav-trigger"><span data-lang="ko">오늘의 메뉴</span><span data-lang="en">Today's Menu</span></div>
   <div class="nav-inner">
-    <a class="nav-card" href="today-crypto-v2.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="45" r="20" fill="#ffd400"/><path d="M50 14v10M50 66v10M19 45h10M71 45h10M28 23l7 7M65 60l7 7M72 23l-7 7M35 60l-7 7"/><path d="M40 43q3 4 7 0M53 43q3 4 7 0"/><path d="M41 53q9 7 18 0"/></svg></div><strong data-lang="ko">오늘의 크립토</strong><strong data-lang="en">Today in Crypto</strong><span data-lang="ko">크립토 뉴스 큐레이션</span><span data-lang="en">Daily crypto briefing</span></a>
+    <a class="nav-card" href="index.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="45" r="20" fill="#ffd400"/><path d="M50 14v10M50 66v10M19 45h10M71 45h10M28 23l7 7M65 60l7 7M72 23l-7 7M35 60l-7 7"/><path d="M40 43q3 4 7 0M53 43q3 4 7 0"/><path d="M41 53q9 7 18 0"/></svg></div><strong data-lang="ko">오늘의 크립토</strong><strong data-lang="en">Today in Crypto</strong><span data-lang="ko">크립토 뉴스 큐레이션</span><span data-lang="en">Daily crypto briefing</span></a>
     <a class="nav-card" href="oh-defi.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="22" width="25" height="22" rx="2" fill="#ffd400"/><rect x="62" y="22" width="25" height="22" rx="2"/><rect x="37" y="61" width="26" height="22" rx="2"/><path d="M38 33h18M62 34q-12 0-12 12v13M38 34q12 0 12 12M63 72q14-2 14-18M77 54l-5 6M77 54l5 6M25 44v12q0 16 12 16M37 72l-6-5M37 72l-6 5"/></svg></div><strong data-lang="ko">오!디파이</strong><strong data-lang="en">Oh! DeFi</strong><span data-lang="ko">프로토콜이 지배하는 새로운 금융</span><span data-lang="en">New finance ruled by protocols</span></a>
     <a class="nav-card" href="oh-decentralization.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="29" r="8" fill="#ffd400"/><circle cx="49" cy="18" r="7"/><circle cx="77" cy="32" r="8"/><circle cx="30" cy="62" r="7"/><circle cx="63" cy="70" r="9"/><circle cx="82" cy="62" r="5"/><path d="M30 27l12-6M56 21l14 7M29 36l-2 18M36 63l18 5M70 67l8-3M70 38l-9 24M37 57l34-21M28 31l44 4"/></svg></div><strong data-lang="ko">오!탈중앙</strong><strong data-lang="en">Oh! Decentralization</strong><span data-lang="ko">탈중앙 이념의 허와 실</span><span data-lang="en">The promise and cracks of decentralization</span></a>
     <a class="nav-card" href="archive.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 30h64v50H18z" fill="#fff"/><path d="M24 22h52l6 8H18z" fill="#ffd400"/><path d="M32 44h36M32 56h28M32 68h20"/></svg></div><strong data-lang="ko">오!아카이브</strong><strong data-lang="en">Oh! Archive</strong><span data-lang="ko">그간 발행호 모음</span><span data-lang="en">Past issues</span></a>
@@ -56,11 +58,11 @@
     <p data-lang="en">A shelf for past issues.</p>
   </section>
   <section class="grid">
-    <a class="card" href="today-crypto-v2.html">
+    <a class="card" href="index.html">
       <div class="card-head"><span data-lang="ko">제 1 호</span><span data-lang="en">Issue No.1</span><span data-lang="ko">2026.05.26</span><span data-lang="en">May 26, 2026</span></div>
-      <div class="stage"><img src="today_in_crypto/260526/today%20in%20crypto_260526.png" alt="Hand-drawn DeFi ecosystem with a worried vault connected to protocol boxes, coins, and stormy flows"></div>
-      <p class="note" data-lang="ko"><strong>바람잘 날 없는 디파이 생태계의 소식들에 집중해봤습니다.</strong> 어려운 거 같기도 하고, 또 되게 허술한 거 같기도 하고, 미래인 건 분명한 거 같은데 또 막 탈중앙은 무슨 탈중앙이야 싶기도 하고 그러네요잉?</p>
-      <p class="note" data-lang="en"><strong>Today we are focusing on a few stories from the DeFi ecosystem, where there never seems to be a quiet day.</strong> Sometimes it feels difficult, sometimes oddly flimsy, and it still seems like the future. Then again, sometimes you look at it and think, "Decentralized? Really?"</p>
+      <div class="stage"><picture><source srcset="today_in_crypto/260526/today-in-crypto-260526(dark).png" media="(prefers-color-scheme: dark)"><img src="today_in_crypto/260526/today-in-crypto-260526(light).png" alt="Hand-drawn permission paper being signed by three hands, with a sneaky hand and money bursting from a yellow treasury box"></picture></div>
+      <p class="note" data-lang="ko"><strong>바람잘 날 없는 디파이</strong> Safe 모듈 익스플로잇, AI 결제, StablR 디페그까지. 디파이가 아직 실험장이라는 사실을 보여준 하루.</p>
+      <p class="note" data-lang="en"><strong>No Quiet Days in DeFi</strong> Safe module exploits, AI payments, and the StablR depeg: a day that showed DeFi is still very much an experiment.</p>
     </a>
   </section>
 </main>

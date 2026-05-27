@@ -1,6 +1,8 @@
 ---
 date: 2026-05-26
 lang: ko
+issue_title: 바람잘 날 없는 디파이
+issue_description: Safe 모듈 익스플로잇, AI 결제, StablR 디페그까지. 디파이가 아직 실험장이라는 사실을 보여준 하루.
 ---
 
 바람잘 날 없는 디파이 생태계의 소식들에 집중해봤습니다. 어려운 거 같기도 하고, 또 되게 허술한 거 같기도 하고, 미래인 건 분명한 거 같은데 또 막 탈중앙은 무슨 탈중앙이야 싶기도 하고 그러네요잉?
@@ -12,6 +14,8 @@ lang: ko
 이번 Safe 관련 사고의 핵심은 "지갑 자체가 털렸나?"보다 "지갑에 붙인 외부 모듈이 얼마나 큰 권한을 갖고 있었나?"입니다. Safe는 여러 사람이 함께 서명해야 자산이 움직이는 멀티시그 지갑으로 많이 쓰인다네요. DAO나 프로젝트 금고가 자주 사용할 겁니다. 여기에 외부 모듈을 붙이면 특정 작업을 자동화할 수 있습니다. 이를테면 매월 누군가에게 운영비 얼마를 자동으로 보낼 수 있는 거죠? 이런 부분에 대해서 매번 3명이 승인하려면 시간이 오래 걸리고 비효율적일 겁니다. 그래서 Safe에 모듈을 붙여서 '이 모듈은 우리가 허락한 프로그램이니까 이 모듈이 정해진 규칙 안에서 요청하면 매번 3명의 서명을 받지 않아도 Safe 자금을 움직일 수 있게 해줘 아라쮜~?'라고 하는 것입니다.
 
 인공지능이 결제까지 도맡을 세상이 곧 다가온다는 느낌이 든다 아닙니까? Coinbase는 작년 5월에 x402를 소개했습니다. 이는 인공지능 에이전트나 앱이 HTTP 요청 흐름 안에서 스테이블코인으로 API, 서비스, 콘텐츠 비용을 지불할 수 있게 하는 결제 프로토콜입니다. 이후 Cloudflare와의 x402 Foundation, Linux Foundation 편입, AWS Bedrock AgentCore Payments 프리뷰 등으로 이어지며, 지금은 ‘AI 에이전트가 돈을 쓰는 인터넷’의 초기 표준 후보 중 하나가 되고 있습니다. 앞에서 해킹당한 모듈이 인공지능이 되는 세상도 상상해볼 수 있을 거 같은데, 권한을 얼만큼 주고 어떻게 다양한 상황에 대비할 수 있을지 앞으로 지켜봐야할 거 같습니다. 아! 흥미진진해라~!!
+
+##### 참고
 
 + Safe 모듈 익스플로잇 보도: https://www.theblock.co/post/402487/we-dont-know-who-deployed-this-squid-distances-itself-from-3-2-million-third-party-module-exploit
 + Cointelegraph의 Safe·Squid 정리: https://cointelegraph.com/news/squid-safe-labs-third-party-module-3-2-million-exploit
@@ -35,6 +39,8 @@ StablR의 발행 권한을 3명이 나누어가지고 있었던 것으로 보입
 > <<이더리움 없는 미래는 없다>>, 9p
 
 그러니까요. 이런 일들이 다 거름이 된다는 거 아니겠어요? 하여간 바람 잘 날 없는 디파이 생태계 저도 앞으로 잘 쫓아보렵니다! 뭐가 되고 있기는 한 거 같아 분명히!
+
+##### 참고
 
 + The Block의 StablR EURR·USDR 디페그 보도: https://www.theblock.co/amp/post/402429/stablrs-eurr-and-usdr-depeg-after-attacker-mints-13-5-million-in-unbacked-tokens-through-multisig-exploit
 + CoinDesk의 StablR 토큰 동결 후속 보도: https://www.coindesk.com/markets/2026/05/26/stablr-freezes-usdr-and-eurr-after-attacker-mints-usd13-5-million-in-unbacked-tokens

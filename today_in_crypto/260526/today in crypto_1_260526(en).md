@@ -1,6 +1,8 @@
 ---
 date: 2026-05-26
 lang: en
+issue_title: No Quiet Days in DeFi
+issue_description: Safe module exploits, AI payments, and the StablR depeg: a day that showed DeFi is still very much an experiment.
 ---
 
 Today we are focusing on a few stories from the DeFi ecosystem, where there never seems to be a quiet day. Sometimes it feels difficult, sometimes oddly flimsy, and it still seems like the future. Then again, sometimes you look at it and think, "Decentralized? Really?"
@@ -12,6 +14,8 @@ On Ethereum and Base, a third-party Safe module named "SquidRouterModule" appear
 The key question in this Safe-related incident is not simply, "Was the wallet itself hacked?" It is, "How much authority did the external module attached to the wallet actually have?" Safe is widely used as a multisig wallet, where multiple people must sign before assets can move. DAOs and project treasuries often rely on it. But if you attach an external module to Safe, certain tasks can be automated. For example, it might send a fixed amount of operating expenses to someone every month. Getting three multisig signers to approve that every single time can be slow and inefficient. So a team can attach a module to Safe and say, in effect, "This module is an approved program. If it makes a request within the rules we set, let it move Safe funds without getting three signatures every time, alright?"
 
 It feels like a world where AI handles payments is coming pretty soon, does it not? Coinbase introduced x402 in May last year. It is a payment protocol that lets AI agents or apps pay for APIs, services, and content with stablecoins inside the normal flow of HTTP requests. Since then, it has led to the x402 Foundation with Cloudflare, a move under the Linux Foundation, and the AWS Bedrock AgentCore Payments preview. At this point, it is becoming one of the early standard candidates for an internet where AI agents spend money. You can also imagine a world where the hacked module from the first story is replaced by an AI agent. How much authority should we give it? How should we prepare for all the strange situations that follow? We will have to keep watching. Exciting times, I suppose.
+
+##### source
 
 + Safe module exploit report: https://www.theblock.co/post/402487/we-dont-know-who-deployed-this-squid-distances-itself-from-3-2-million-third-party-module-exploit
 + Cointelegraph's Safe and Squid summary: https://cointelegraph.com/news/squid-safe-labs-third-party-module-3-2-million-exploit
@@ -35,6 +39,8 @@ There is clearly a lot of homework left. I like the Korean crypto thinker and wr
 > *There Is No Future Without Ethereum*, p. 9
 
 Exactly. Maybe all of these incidents become fertilizer in the end. Anyway, this ever-restless DeFi ecosystem is something I plan to keep following closely. Something is definitely being built here. Probably.
+
+##### source
 
 + The Block's report on StablR EURR and USDR depegging: https://www.theblock.co/amp/post/402429/stablrs-eurr-and-usdr-depeg-after-attacker-mints-13-5-million-in-unbacked-tokens-through-multisig-exploit
 + CoinDesk follow-up on StablR freezing tokens: https://www.coindesk.com/markets/2026/05/26/stablr-freezes-usdr-and-eurr-after-attacker-mints-usd13-5-million-in-unbacked-tokens
