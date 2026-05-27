@@ -13,10 +13,10 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7}
   .site-nav{border-bottom:2px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:10}
-  .nav-trigger{height:30px;max-width:980px;margin:0 auto;padding:0 14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+  .nav-trigger{height:30px;max-width:980px;margin:0 auto;padding:0 14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;width:100%;border:0;background:transparent;color:var(--ink);cursor:pointer}
   .nav-trigger::after{content:"+";width:18px;height:18px;border:2px solid var(--ink);background:var(--yellow);display:grid;place-items:center;line-height:1}
-  .nav-inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:2px solid var(--ink);position:absolute;left:50%;top:32px;width:min(980px,100%);transform:translate(-50%,-12px);opacity:0;visibility:hidden;pointer-events:none;background:var(--paper);box-shadow:0 8px 0 rgba(13,13,13,.12);transition:opacity .15s,transform .15s,visibility .15s}
-  .site-nav:hover .nav-inner,.site-nav:focus-within .nav-inner{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+  .nav-inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:2px solid var(--ink);position:absolute;left:50%;top:32px;width:min(980px,100%);transform:translate(-50%,-12px);opacity:0;visibility:hidden;pointer-events:none;background:var(--paper);box-shadow:0 8px 0 rgba(13,13,13,.12);transition:none}
+  .site-nav.menu-open .nav-inner{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.site-nav.menu-open .nav-trigger::after{content:"-"}.nav-trigger[aria-expanded="true"] + .nav-inner{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.nav-trigger[aria-expanded="false"] + .nav-inner{opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-12px)}
   .nav-card{min-height:188px;padding:12px 14px 10px;border-right:2px solid var(--ink);color:var(--ink);text-decoration:none;display:flex;flex-direction:column;background:var(--paper)}
   .nav-card:hover{background:var(--yellow);color:#0d0d0d}.nav-card:hover span{color:#0d0d0d}
   .nav-art{min-height:108px;margin:-12px -14px 12px;border-bottom:2px solid var(--ink);display:grid;place-items:center;background:linear-gradient(90deg,rgba(13,13,13,.06) 1px,transparent 1px),linear-gradient(rgba(13,13,13,.06) 1px,transparent 1px),var(--paper-dim);background-size:14px 14px}
@@ -43,7 +43,10 @@
 </head>
 <body class="ko">
 <nav class="site-nav" aria-label="Primary">
-  <div class="nav-trigger"><span data-lang="ko">오늘의 메뉴</span><span data-lang="en">Today's Menu</span></div>
+  <button class="nav-trigger" type="button" aria-expanded="false">
+      <span data-lang="ko">오늘의 메뉴</span>
+      <span data-lang="en">Today&apos;s Menu</span>
+    </button>
   <div class="nav-inner">
     <a class="nav-card" href="index.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="45" r="20" fill="#ffd400"/><path d="M50 14v10M50 66v10M19 45h10M71 45h10M28 23l7 7M65 60l7 7M72 23l-7 7M35 60l-7 7"/><path d="M40 43q3 4 7 0M53 43q3 4 7 0"/><path d="M41 53q9 7 18 0"/></svg></div><strong data-lang="ko">오늘의 크립토</strong><strong data-lang="en">Today in Crypto</strong><span data-lang="ko">크립토 뉴스 큐레이션</span><span data-lang="en">Daily crypto briefing</span></a>
     <a class="nav-card" href="oh-defi.html"><div class="nav-art"><svg viewBox="0 0 100 100" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="22" width="25" height="22" rx="2" fill="#ffd400"/><rect x="62" y="22" width="25" height="22" rx="2"/><rect x="37" y="61" width="26" height="22" rx="2"/><path d="M38 33h18M62 34q-12 0-12 12v13M38 34q12 0 12 12M63 72q14-2 14-18M77 54l-5 6M77 54l5 6M25 44v12q0 16 12 16M37 72l-6-5M37 72l-6 5"/></svg></div><strong data-lang="ko">오!디파이</strong><strong data-lang="en">Oh! DeFi</strong><span data-lang="ko">프로토콜이 지배하는 새로운 금융</span><span data-lang="en">New finance ruled by protocols</span></a>
@@ -86,6 +89,28 @@
     document.getElementById('btn-en').classList.toggle('active',l==='en');
     updateLangLinks(l);
   }
+  function setupTopNav(){
+    const nav=document.querySelector(".site-nav");
+    const trigger=document.querySelector(".nav-trigger");
+    const inner=nav.querySelector(".nav-inner");
+    if(!nav || !trigger || !inner) return;
+    const setOpen=(open)=>{
+      nav.classList.toggle("menu-open", open);
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+      inner.style.opacity=open ? "1" : "0";
+      inner.style.visibility=open ? "visible" : "hidden";
+      inner.style.pointerEvents=open ? "auto" : "none";
+      inner.style.transform=open ? "translate(-50%,0)" : "translate(-50%,-12px)";
+    };
+    trigger.addEventListener("click", (e)=>{
+      e.stopPropagation();
+      setOpen(!nav.classList.contains("menu-open"));
+    });
+    nav.addEventListener("click", (e)=>e.stopPropagation());
+    document.addEventListener("click", ()=>setOpen(false));
+    document.addEventListener("keydown", (e)=>{if(e.key==="Escape") setOpen(false)});
+  }
+  setupTopNav();
   const initialLang=new URLSearchParams(window.location.search).get('lang') || getStoredLang() || 'ko';
   setLang(initialLang === 'en' ? 'en' : 'ko');
 </script>
