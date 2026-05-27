@@ -5,15 +5,15 @@ issue_title: "Institutionalizing Crypto Is America's Will, and Something America
 issue_description: "Trump called state moves against prediction markets an overreach. And the more you look, the more crypto institutionalization starts to feel like an American instinct."
 ---
 
-Do coins and prediction markets not feel like they grew up outside the state? And yet America does not seem to be trying simply to crush them. It looks more like it wants to absorb them into a digital dollar system and bring them into a new kind of financial market. And honestly, this feels like something America has been good at for a long time.
+Do coins and prediction markets not feel like they grew up outside the state? And yet America does not seem to be trying to crush them. It looks more like it wants to absorb them into a digital dollar system and bring them into a new kind of financial market. Of course there is friction, but I get the feeling America will end up embracing them. And the more I look into it, the more this seems like something America has been good at for a long time.
 
 # Are Prediction Markets Finance or Gambling?
 
-In the United States, people are arguing over prediction market platforms like Kalshi and Polymarket. President Trump said on social media that it is "critically important" to maintain the CFTC's exclusive authority over prediction markets. In other words, Trump is treating prediction market platforms as federally supervised financial markets. Several state governments, on the other hand, see prediction markets as gambling.
+In the United States, a fight is unfolding over prediction market platforms like Kalshi and Polymarket, mainly between the federal government and state governments. President Trump said on social media that it is "critically important" to maintain the CFTC's exclusive authority over prediction markets. In other words, Trump is treating prediction market platforms as federally supervised financial markets. Several state governments, on the other hand, see prediction markets as gambling.
 
-What do you think? Is this gambling? Or is it a financial product? I did a bit of searching, and found something interesting. Some unusual people in America have been thinking of prediction markets as "information markets" that turn future probabilities into prices. It seems like this idea has a pretty long history. I should cover it properly sometime.
+What do you think? Is this gambling? Or is it a financial product?
 
-Anyway, America is arguing about it.
+America is arguing about it.
 
 ##### Source
 
@@ -25,9 +25,13 @@ Anyway, America is arguing about it.
 
 # The Stablecoin Market Is Huge
 
-The global stablecoin market has reportedly grown to around $320 billion. That means the total value of stablecoins moving around the world is roughly 440 trillion Korean won. It is smaller than Samsung Electronics' market capitalization, but it is still well over half of South Korea's 2026 government budget of about 728 trillion won. So yes, there is a lot of stablecoin money moving around. The supply is $320 billion, and depending on how you measure it, annual transaction volume has already climbed into the tens of trillions of dollars.
+The global stablecoin market has reportedly grown to around $320 billion. That means the total value of stablecoins moving around the world is roughly 440 trillion Korean won. Samsung Electronics' market capitalization has recently been somewhere around 500 to 600 trillion won, and South Korea's annual government budget is around 670 trillion won. So yes, there is a lot of stablecoin supply out there. The supply is $320 billion, and annual transaction volume is reportedly in the tens of trillions of dollars.
 
-Stablecoins are digital dollars moving around outside the banking system. Dollar stablecoins like USDT and USDC are used like cash inside the crypto market, without bank accounts. And most stablecoins are dollar stablecoins. A large share of the reserves held by dollar stablecoin issuers is in U.S. Treasuries. If people around the world use digital dollars, that eventually creates demand for U.S. government debt. I keep getting this feeling that a world full of digital dollars flying around everywhere is the world we are about to live in.
+Stablecoins are digital dollars moving around outside the banking system. Dollar stablecoins like USDT and USDC are used like cash inside the crypto market, without bank accounts. And most stablecoins are dollar stablecoins. A large share of the reserves held by dollar stablecoin issuers is in U.S. Treasuries. If people around the world use digital dollars, that eventually creates demand for U.S. government debt. America has been looking for buyers of Treasuries to replace China.
+
+There is a line from a Korean song that goes something like: I found my love, the love I was looking for.
+
+Dollar stablecoins may be exactly what America was looking for. What happens now? I do not know for sure, but I do feel like this is a change worth following closely. America is clearly putting serious energy into it.
 
 ##### Source
 
@@ -37,8 +41,12 @@ Stablecoins are digital dollars moving around outside the banking system. Dollar
 + Report on South Korea's 2026 government budget of 727.9 trillion won: https://koreajoongangdaily.joins.com/news/2025-12-03/national/politics/National-Assembly-passes-7279-trillion-won-budget-for-next-year-within-legal-deadline/2468468
 + Research on stablecoin issuers and demand for U.S. Treasuries: https://www.brookings.edu/wp-content/uploads/2025/10/The_Rise_of_Stablecoins_and_Implications_for_Treasury_Markets_Davidovic_Ghani_Moszoro.pdf
 
-# Is This America's Will, and Also America's DNA?
+# Crypto Institutionalization Is America's Will, and Something America Is Good At
 
-I understand why America is serious about dollar stablecoin policy. Stablecoins can create new demand for U.S. Treasury bills, and that connects directly to America's financial power. But I kept wondering, "Why are they also trying so hard to bring prediction markets into the system?" After looking into it a bit, I found that the history of Chicago's futures markets developed around a tension: allow speculation, but discipline it with rules. So maybe crypto institutionalization is both America's will and something America is good at. America is a superpower, it clearly has the will to embrace crypto, and it has handled this kind of thing before. Does that not make it reasonable to think crypto could be the next wind America decides to ride?
+I understand why America is serious about dollar stablecoin policy. Stablecoins can increase demand for U.S. Treasuries, and that connects directly to dollar hegemony. But I kept wondering, "Why are they also trying so hard to bring prediction markets into the system?" After looking into it a bit, I found that the history of Chicago's futures markets developed around a tension: allow speculation, but discipline it with rules. So maybe America is the kind of country that is unusually good at absorbing this sort of thing. If anyone reading this lives in the United States, please tell me if I am wrong. That is how it feels to me. "Ah, this is not a country that simply blocks everything."
 
-But then again, the Korean writer Oh Tae-min was apparently telling people ten years ago that America would embrace Bitcoin. How did he think of that ten years ago...?(Please understand that the publisher is a fan.)
+So, as I see it, crypto institutionalization is both America's will and something America is good at. America is a superpower, it clearly has the will to embrace crypto, and it is also kind of a specialist in this kind of thing. Thinking about it that way makes me feel a little rushed, as if the world could change very quickly.
+
+cf
+
+But then again, the Korean writer Oh Tae-min apparently discovered Bitcoin more than ten years ago and was already telling people that America would embrace it. How did he think of that more than ten years ago...?(Please understand that the publisher is a fan.)
