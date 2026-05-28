@@ -47,6 +47,4 @@ I understand why America is serious about dollar stablecoin policy. Stablecoins 
 
 So, as I see it, crypto institutionalization is both America's will and something America is good at. America is a superpower, it clearly has the will to embrace crypto, and it is also kind of a specialist in this kind of thing. Thinking about it that way makes me feel a little rushed, as if the world could change very quickly.
 
-cf
-
 But then again, the Korean writer Oh Tae-min apparently discovered Bitcoin more than ten years ago and was already telling people that America would embrace it. How did he think of that more than ten years ago...?(Please understand that the publisher is a fan.)
