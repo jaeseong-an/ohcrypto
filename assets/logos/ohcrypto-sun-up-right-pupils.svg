@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Ohcrypto sun logo">
+  <circle cx="512" cy="512" r="480" fill="#ffffff"/>
+  <g fill="none" stroke="#0d0d0d" stroke-width="30" stroke-linecap="round">
+    <path d="M508 252 L499 151"/>
+    <path d="M610 279 L653 185"/>
+    <path d="M695 347 L789 283"/>
+    <path d="M742 449 L853 428"/>
+    <path d="M729 564 L835 615"/>
+    <path d="M653 657 L717 758"/>
+    <path d="M538 700 L546 828"/>
+    <path d="M419 674 L359 781"/>
+    <path d="M321 589 L215 645"/>
+    <path d="M283 474 L168 461"/>
+    <path d="M321 368 L231 300"/>
+    <path d="M410 283 L368 181"/>
+  </g>
+  <path d="M334 478 C351 350, 462 282, 586 313 C701 339, 768 458, 721 577 C674 704, 508 759, 397 683 C321 632, 304 555, 334 478 Z" fill="#ffd400" stroke="#0d0d0d" stroke-width="34" stroke-linejoin="round"/>
+  <circle cx="426" cy="482" r="34" fill="#ffffff" stroke="#0d0d0d" stroke-width="22"/>
+  <circle cx="439" cy="465" r="15" fill="#0d0d0d"/>
+  <circle cx="596" cy="482" r="34" fill="#ffffff" stroke="#0d0d0d" stroke-width="22"/>
+  <circle cx="609" cy="465" r="15" fill="#0d0d0d"/>
+  <path d="M443 593 C494 606, 550 606, 606 593" fill="none" stroke="#0d0d0d" stroke-width="26" stroke-linecap="round"/>
+</svg>
